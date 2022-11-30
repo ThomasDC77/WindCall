@@ -1,4 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Wind Call</h1>
+<h2>Trouve ton prochain spot de Kite Surf !</h2>
+
+<p>Découvre les plus beaux spots de Kite
+Surf en fonction de tes critères  à travers
+la France !</p>
 
 
+<button class=" button-alert">
+  <i class="fa fa-bell"></i>
+  M'alerter
+</button>
+<br>
+<br>
+
+<p>Selectionne la DIRECTION du vent !</p>
+
+<div class="choose-wind-direction">
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+</div>
+
+<p>Selectionne la FORCE du vent !</p>
+
+  <div class="field-wrap">
+    <label>Length</label>
+    <span class="range-value"></span>
+    <div class="range-slider_wrapper">
+      <span class="slider-bar" v-bind:style="{ width: lengthThumbPosition + '%' }"></span>
+      <input type="range" class="range-slider" min="6" v-bind:max="settings.maxLength" v-model="settings.length">
+    </div>
+  </div>
+
+<p>Combien de TEMPS AVANT tu veux être prévenu ?</p>
+
+<div class="choose-wind-direction">
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+  <button class="wind-direction"></button>
+</div>
