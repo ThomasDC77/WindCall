@@ -13,4 +13,10 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
   end
+
+  private
+
+  def spot_params
+    params.require(:spot).permit(:name, :address, :description, photos: [])
+  end
 end
