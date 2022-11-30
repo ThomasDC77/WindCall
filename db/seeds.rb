@@ -42,8 +42,8 @@ hrefs.each do |href|
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
 
-  title = html.search("h1.elementor-heading-title").text
-  difficulty = html.search(".jet-listing-dynamic-field__content").text
+  title = html.search("h1.elementor-heading-title").text.gsub(/Spot Kitesurf :/i, "").strip
+  difficulty = html.search(".jet-listing-dynamic-field__content").text.gsub(/Difficulté :/i, "").strip
   description1 = html.search("#elementor-tab-content-1451 p").text
   description2 = html.search("#elementor-tab-content-1455 p").text
   description = description1 + description2
