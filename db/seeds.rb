@@ -47,20 +47,28 @@ hrefs.first(2).each do |href|
   description1 = html.search("#elementor-tab-content-1451 p").text
   description2 = html.search("#elementor-tab-content-1455 p").text
   address = html.search(".elementor-icon-list-text").first.text
-  geocode = Geocoder.search(address)
-  longitude = geocode.first.coordinates[1]
-  latitude = geocode.first.coordinates[0]
+
   description = description1 + description2
 
   imgs = html.search(".jet-engine-gallery-slider__item img")
   photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
 
-  Spot.create!(name: title, address: address, latitude: latitude, longitude: longitude, description: description, difficulty: difficulty)
+  Spot.create!(name: title, address: address, description: description, difficulty: difficulty)
 end
+
+
 
 # file_show = File.open('db/datas/page_show.html')
 
 # html = Nokogiri::HTML(file_show)
+
+# address = html.search(".elementor-icon-list-text").first.text
+# code_post = address.scan(/\d+/)
+# ap code_post.first
+# geocode = Geocoder.search(code_post.first)
+# ap geocode.first.coordinates
+
+
 # title = html.search("h1.elementor-heading-title").text
 # difficulty = html.search(".jet-listing-dynamic-field__content").text
 
