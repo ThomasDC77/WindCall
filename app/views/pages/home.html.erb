@@ -23,33 +23,54 @@ la France !</p>
 <br>
 <br>
 
-<p>Selectionne la DIRECTION du vent !</p>
+<%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
+  <p>Séléctionne la DIFFICULTE de ton spot</p>
+  <div class="choose-difficulty-spot">
 
-<div class="choose-wind-direction">
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-</div>
+    <div class="first-two-div">
+      <%= f.radio_button :difficulty, "Difficulté : Débutant", id: "deb" %>
+      <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
-<p>Selectionne la FORCE du vent !</p>
+      <%= f.radio_button :difficulty, "Difficulté : Intermédiaire", id: "int" %>
+      <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "int" %>
+    </div>
 
-  <div class="field-wrap">
-    <label>Length</label>
-    <span class="range-value"></span>
-    <div class="range-slider_wrapper">
-      <span class="slider-bar" v-bind:style="{ width: lengthThumbPosition + '%' }"></span>
-      <input type="range" class="range-slider" min="6" v-bind:max="settings.maxLength" v-model="settings.length">
+    <div class="two-last-div">
+      <%= f.radio_button :difficulty, "Difficulté : Confirmé", id: "con" %>
+      <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "con" %>
+
+      <%= f.radio_button :difficulty, "Difficulté : Expert", id: "exp" %>
+      <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "exp" %>
     </div>
   </div>
 
-<p>Combien de TEMPS AVANT tu veux être prévenu ?</p>
+  <p>Selectionne la FORCE du vent !</p>
 
-<div class="choose-wind-direction">
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-  <button class="wind-direction"></button>
-</div>
+  <div class="double-slider">
+    <span class="value" data-double-slider-target="rangeOne"></span>
+    <div class="slider-container">
+      <div data-double-slider-target="sliderBar" class="slider-bar"></div>
+      <%= f.range_field :wind_min, value: params[:wind_min] || "15", min: "0", max: "60", data: { double_slider_target: "sliderOne", action: "input->double-slider#slideOne"} %>
+      <%= f.range_field :wind_max, value: params[:wind_max] || "30", min: "0", max: "60", data: { double_slider_target: "sliderTwo", action: "input->double-slider#slideTwo"} %>
+    </div>
+    <span class="value" data-double-slider-target="rangeTwo"></span>
+
+  </div>
+
+  <p>Quand veux-tu aller Kite-Surfer</p>
+
+    <div class="first-two-div">
+      <%= f.radio_button :time, "Difficulté : Débutant", id: "tod" %>
+      <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "tod" %>
+
+      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "tom" %>
+      <%= f.label :time, "Demain", class:"when-kite-spot", for: "tom" %>
+
+      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "after" %>
+      <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
+    </div>
+<% end %>
+<br>
+<br>
+<br>
+  <%= link_to "Rechercher tous mes spots !", spots_path, class:"submit-button" %>
