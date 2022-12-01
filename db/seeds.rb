@@ -7,8 +7,8 @@ require 'awesome_print'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-
-Spot.destroy.all
+SpotWeather.destroy_all
+Spot.destroy_all
 
 file1 = File.open('db/datas/page_1.html')
 file2 = File.open('db/datas/page_2.html')

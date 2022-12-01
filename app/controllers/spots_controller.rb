@@ -7,11 +7,14 @@ class SpotsController < ApplicationController
   end
 
   def index
-    spots = Spot.all
-    spots.each do |spot|
-      if spot == Venue.near([@spot.latitude, @spot.longitude], @perimetre, units: :km)
-        return spot
-      end
+    @spots = Spot.all
+
+    if params[:address].present? || params[:perimeter].present?
+      geocode = Geocoder.search(params[:address]).find { |r| r.data["address"]["country_code"] == "fr" }
+      lat = geocode.coordinates[0]
+      long = geocode.coordinates[1]
+      perimeter = params[:perimeter].present? ? params[:perimeter].to_i : 10
+      @spots = Spot.near([lat, long], perimeter, units: :km)
     end
   end
 
