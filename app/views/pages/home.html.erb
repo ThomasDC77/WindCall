@@ -5,27 +5,15 @@
 Surf en fonction de tes critères  à travers
 la France !</p>
 
-<%= form_with url: spots_path, method: :get do |f| %>
-  <div class="form_geolocation">
-    <%= f.text_field :address, placeholder: "address" %>
-    <%= f.text_field :perimeter, placeholder: "> 20km" %>
-  </div>
-  <%= f.button "search" %>
-<% end %>
-
-
-
-
 <button class=" button-alert">
   <i class="fa fa-bell"></i>
   M'alerter
 </button>
-<br>
-<br>
+
 
 <%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
-  <p>Séléctionne la DIFFICULTE de ton spot</p>
   <div class="choose-difficulty-spot">
+  <p>Séléctionne la difficulté de ton spot</p>
 
     <div class="first-two-div">
       <%= f.radio_button :difficulty, "Difficulté : Débutant", id: "deb" %>
@@ -44,7 +32,7 @@ la France !</p>
     </div>
   </div>
 
-  <p>Selectionne la FORCE du vent !</p>
+  <p>Selectionne la force du vent ! (en Km/h)</p>
 
   <div class="double-slider">
     <span class="value" data-double-slider-target="rangeOne"></span>
@@ -57,7 +45,7 @@ la France !</p>
 
   </div>
 
-  <p>Quand veux-tu aller Kite-Surfer</p>
+  <p>Quand veux-tu aller Kite-Surfer ?</p>
 
     <div class="first-two-div">
       <%= f.radio_button :time, "Difficulté : Débutant", id: "tod" %>
@@ -70,7 +58,15 @@ la France !</p>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
 <% end %>
-<br>
-<br>
-<br>
-  <%= link_to "Rechercher tous mes spots !", spots_path, class:"submit-button" %>
+
+
+<%= form_with url: spots_path, method: :get do |f| %>
+  <div class="form_geolocation">
+    <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
+    <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
+  </div>
+
+  <div class="button-link-to">
+    <%= link_to "Rechercher tous mes spots !", spots_path, class:"submit-button" %>
+  </div>
+<% end %>

@@ -6,6 +6,8 @@ class SpotsController < ApplicationController
   def create
   end
 
+
+
   def index
     @spots = Spot.all
 
@@ -17,10 +19,11 @@ class SpotsController < ApplicationController
       @spots = @spots.joins(:weathers).where(weather: { force_wind: params[:wind_min]..params[:wind_max]})
     end
 
-    if params[:time].present?
-      if params[:time] ===quand le mec envoie today on la meteo du spot du jour
-        3.day.from_now
-        
+    # if params[:time].present?
+    #   if params[:time] ===quand le mec envoie today on la meteo du spot du jour
+    #     3.day.from_now
+    #   end
+
     if params[:address].present? || params[:perimeter].present?
       geocode = Geocoder.search(params[:address]).find { |r| r.data["address"]["country_code"] == "fr" }
       lat = geocode.coordinates[0]
