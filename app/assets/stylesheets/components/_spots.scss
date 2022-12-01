@@ -1,0 +1,39 @@
+.show-card{
+  height: 430px;
+  object-fit: fill;
+  justify-content: space-between;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-white;
+}
+
+.spot-name{
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $text-white;
+}
+
+.show-card-infos{
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $color-primary;
+  padding-top: 20px;
+}
+
+.show-card-weather{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
