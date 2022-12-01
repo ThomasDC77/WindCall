@@ -2,22 +2,13 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
-# Spot.create(name: "Plage Almanarre", address: "12 rue giens", latitude: "1,22222", longitude: "43,2222", photo_url: "www.photo", description: "le spot est beau", difficulty: "débutant")
-
-# Spot.create(name: "Plage Toulon", address: "44 rue giens", latitude: "45,22222", longitude: "56,2222", photo_url: "www.photo", description: "spot de toulon", difficulty: "intermédiaire")
-
-# Spot.create(name: "Plage Marseille", address: "65 rue giens", latitude: "34,22222", longitude: "22,2222", photo_url: "www.photo", description: "le spot de marseille", difficulty: "profesionnel")
-
-# # Spot.create(name: "Plage Lyon", address: "44 rue giens", latitude: "1,22222", longitude: "43,2222", photo_url: "www.photo", description: "le spot est beau", difficulty: "débutant")
 
 require 'awesome_print'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+
+Spot.destroy.all
 
 file1 = File.open('db/datas/page_1.html')
 file2 = File.open('db/datas/page_2.html')
@@ -54,12 +45,12 @@ hrefs.each do |href|
   imgs = html.search(".jet-engine-gallery-slider__item img")
   photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
 
-  x = 1
-  photo_urls.each do |photo|
-    file = URI.open(photo)
-    spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
-    x += 1
-  end
+  # x = 1
+  # photo_urls.each do |photo|
+  #   file = URI.open(photo)
+  #   spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
+  #   x += 1
+  # end
   spot.save
 end
 

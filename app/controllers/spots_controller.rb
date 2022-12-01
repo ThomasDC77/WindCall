@@ -7,7 +7,12 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all
+    spots = Spot.all
+    spots.each do |spot|
+      if spot == Venue.near([@spot.latitude, @spot.longitude], @perimetre, units: :km)
+        return spot
+      end
+    end
   end
 
   def show
