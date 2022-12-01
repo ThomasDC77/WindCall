@@ -1,2 +1,18 @@
-<%= @spot.name %>
+<div class="show-card" style= "background-image: url('<%= cl_image_path @spot.photos.last.key %>')">
+  <div class="spot-icons">
+    <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
+    <i class='far fa-heart' style='font-size:24px'></i>
+  </div>
+  <div class="spot-name">
+    <h3><%= @spot.name %></h3>
+    <p>Difficulté logo</p>
+  </div>
+</div>
 
+<div class="show-card-infos">
+  <p>Description du spot Description du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spot</p>
+  <div class="show-card-weather">
+    <p>Température</p>
+    <p>Prévision</p>
+  </div>
+</div>

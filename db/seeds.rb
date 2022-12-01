@@ -10,6 +10,8 @@ require 'json'
 SpotWeather.destroy_all
 Spot.destroy_all
 
+Spot.destroy_all
+
 file1 = File.open('db/datas/page_1.html')
 file2 = File.open('db/datas/page_2.html')
 file3 = File.open('db/datas/page_3.html')
