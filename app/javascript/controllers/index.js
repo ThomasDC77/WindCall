@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DoubleSliderController from "./double_slider_controller"
+application.register("double-slider", DoubleSliderController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
