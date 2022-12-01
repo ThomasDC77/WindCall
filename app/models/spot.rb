@@ -13,7 +13,7 @@ class Spot < ApplicationRecord
 
     # Check to see if geocoding failed.
     if latitude.blank? && longitude.blank?
-      postal_code = self.address.scan(/\d+/).first
+      postal_code = self.address.scan(/\d{5}/).first
       geocode = Geocoder.search(postal_code).find {|r| r.data["address"]["country_code"] == "fr" }
       self.longitude = geocode.coordinates[1] if geocode
       self.latitude = geocode.coordinates[0] if geocode
