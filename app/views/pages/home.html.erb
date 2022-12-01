@@ -5,6 +5,16 @@
 Surf en fonction de tes critères  à travers
 la France !</p>
 
+<%= form_with url: spots_path, method: :get do |f| %>
+  <div class="form_geolocation">
+    <%= f.text_field :address, placeholder: "address" %>
+    <%= f.text_field :perimeter, placeholder: "> 20km" %>
+  </div>
+  <%= f.button "search" %>
+<% end %>
+
+
+
 
 <button class=" button-alert">
   <i class="fa fa-bell"></i>

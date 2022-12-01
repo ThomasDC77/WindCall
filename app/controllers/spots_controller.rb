@@ -20,6 +20,13 @@ class SpotsController < ApplicationController
     if params[:time].present?
       if params[:time] ===quand le mec envoie today on la meteo du spot du jour
         3.day.from_now
+        
+    if params[:address].present? || params[:perimeter].present?
+      geocode = Geocoder.search(params[:address]).find { |r| r.data["address"]["country_code"] == "fr" }
+      lat = geocode.coordinates[0]
+      long = geocode.coordinates[1]
+      perimeter = params[:perimeter].present? ? params[:perimeter].to_i : 10
+      @spots = Spot.near([lat, long], perimeter, units: :km)
     end
   end
 
