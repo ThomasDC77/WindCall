@@ -1,8 +1,4 @@
-<% @weathers.each do |w| %>
-  <%= display_well_time(w.time) %>
-<% end %>
-
-<div class="show-card" style= "background-image: url('<%= cl_image_path @spot.photos.last.key %>')">
+<div class="show-card" style= "background-image: url('<%= cl_image_tag @spot.photos.last.key %>')">
   <div class="spot-icons">
     <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
     <i class='far fa-heart' style='font-size:24px'></i>
@@ -15,9 +11,16 @@
 </div>
 
 <div class="show-card-infos">
-  <p>Description du spot Description du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spotDescription du spot</p>
+  <p><%= @spot.description %></p>
   <div class="show-card-weather">
-    <p>Température</p>
-    <p>Prévision</p>
+    <% @weathers.each do |w| %>
+      <%= display_well_time(w.time) %>
+        <%= w&.wind_force %>
+        <%= w&.gust_wind %>
+        <%= w&.wind_direction %>
+        <%= w&.temperature %>
+        <%= w&.prob_raing %>
+        <%= w&.prob_fog %>
+    <% end %>
   </div>
 </div>

@@ -63,7 +63,6 @@ la France !</p>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
 
-<%= form_with url: spots_path, method: :get do |f| %>
   <div class="form_geolocation">
     <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
     <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>

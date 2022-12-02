@@ -8,6 +8,7 @@ class FilterSpotsService
     @time = time
     @address = address
     @perimeter = perimeter
+    @weathers = []
   end
 
   def call
