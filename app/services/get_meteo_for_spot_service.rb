@@ -4,6 +4,8 @@ class GetMeteoForSpotService
   end
 
   def call
+    return if @spot.latitude.nil? || @spot.longitude.nil?
+
     latitude = @spot.latitude.round(3)
     longitude = @spot.longitude.round(3)
     day = 0
@@ -15,18 +17,17 @@ class GetMeteoForSpotService
       results = JSON.parse(response)
       day += 1
 
-      if results["forecast"].present?
-        results["forecast"].each do |hour|
-          time = hour["datetime"]
-          wind_force = hour["wind10m"]
-          gust_wind = hour["gust10m"]
-          wind_direction = hour["dirwind10m"]
-          temperature = hour["temp2m"]
-          prob_rain = hour["probarain"]
-          prob_fog = hour["probafog"]
-          weather = Weather.create(time:, wind_force:, gust_wind:, wind_direction:, temperature:, prob_rain:, prob_fog:)
-          SpotWeather.create(spot: @spot, weather:)
-        end
+      next unless results["forecast"].present?
+
+      results["forecast"].each do |hour|
+        time = hour["datetime"]
+        wind_force = hour["wind10m"]
+        gust_wind = hour["gust10m"]
+        wind_direction = hour["dirwind10m"]
+        temperature = hour["temp2m"]
+        prob_rain = hour["probarain"]
+        prob_fog = hour["probafog"]
+        Weather.create(spot: @spot, time:, wind_force:, gust_wind:, wind_direction:, temperature:, prob_rain:, prob_fog:)
       end
     end
     # solve le cas ou l'api marche pas

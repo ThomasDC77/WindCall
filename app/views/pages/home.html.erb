@@ -16,19 +16,24 @@ la France !</p>
   <p>Séléctionne la DIFFICULTE de ton spot</p>
   <div class="choose-difficulty-spot">
 
+    <%#= desolé jean ro %>
     <div class="first-two-div">
-      <%= f.radio_button :difficulty, "Débutant", id: "deb" %>
+      <%#= f.check_box "difficulty[]", id: "deb", input_html: {value: "deb"} %>
+      <input type="checkbox" name="difficulty[]" value="Débutant" id="deb">
       <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
-      <%= f.radio_button :difficulty, "Intermédiaire", id: "int" %>
+      <%#= f.check_box :difficulty, id: "int" %>
+      <input type="checkbox" name="difficulty[]" value="Intermédiaire" id="int">
       <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "int" %>
     </div>
 
     <div class="two-last-div">
-      <%= f.radio_button :difficulty, "Confirmé", id: "con" %>
+      <%#= f.check_box :difficulty, id: "con" %>
+      <input type="checkbox" name="difficulty[]" value="Confirmé" id="con">
       <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "con" %>
 
-      <%= f.radio_button :difficulty, "Expert", id: "exp" %>
+      <%#= f.check_box :difficulty, id: "exp" %>
+      <input type="checkbox" name="difficulty[]" value="Expert" id="exp">
       <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "exp" %>
     </div>
   </div>

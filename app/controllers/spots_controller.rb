@@ -14,10 +14,12 @@ class SpotsController < ApplicationController
     filter_by_time
     filter_by_address
     @spots = @spots.uniq
+    @weathers_ids = @weathers.map(&:id)
   end
 
   def show
     @spot = Spot.find(params[:id])
+    @weathers = @spot.weathers.where(id: params[:weathers_ids])
   end
 
   private
@@ -31,9 +33,8 @@ class SpotsController < ApplicationController
   def filter_by_wind
     return unless params[:wind_min].present? && params[:wind_max].present?
 
-    @spots = @spots.joins(:weathers).where(weathers:
-      { wind_force: params[:wind_min]..params[:wind_max] }
-    )
+    @weathers = Weather.where(wind_force: params[:wind_min]..params[:wind_max])
+    @spots = @spots.joins(:weathers).where(weathers: { id: @weathers.map(&:id) })
   end
 
   def filter_by_time
@@ -41,12 +42,13 @@ class SpotsController < ApplicationController
 
     case params[:time]
     when "today"
-      @spots = @spots.joins(:weathers).where(weathers: { time: [DateTime.now.beginning_of_day..DateTime.now.end_of_day] })
+      @weathers = @weathers.where(time: [DateTime.now.beginning_of_day..DateTime.now.end_of_day])
     when "tomorrow"
-      @spots = @spots.where(weathers: { time: [DateTime.tomorrow.beginning_of_day..DateTime.tomorrow.end_of_day] })
+      @weathers = @weathers.where(time: [DateTime.tomorrow.beginning_of_day..DateTime.tomorrow.end_of_day])
     when "after"
-      @spots = @spots.where(weathers: { time: [2.days.from_now.beginning_of_day..2.days.from_now.end_of_day] })
+      @weathers = @weathers.where(time: [2.days.from_now.beginning_of_day..2.days.from_now.end_of_day])
     end
+    @spots = @spots.joins(:weathers).where(weathers: { id: @weathers.map(&:id) })
   end
 
   def filter_by_address

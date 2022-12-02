@@ -1,3 +1,7 @@
 <%= @spot.name %>
 <%= @spot.difficulty %>
 <%= @spot.address %>
+
+<% @weathers.each do |w| %>
+  <%= w.time.hour %>
+<% end %>
