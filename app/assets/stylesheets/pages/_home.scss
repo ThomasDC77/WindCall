@@ -81,7 +81,7 @@ input[type="radio"] {
   display: none;
 }
 
-input[type="checkbox"]:checked+label {
+input[type="radio"]:checked+label {
   background-color: #1C3E46;
   color: #F4F4F4;
 }
