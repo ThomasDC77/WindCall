@@ -53,17 +53,16 @@ la France !</p>
   <p>Quand veux-tu aller Kite-Surfer ?</p>
 
     <div class="first-two-div">
-      <%= f.check_box :time, id: "tod" %>
-      <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "tod" %>
+      <%= f.radio_button :time, "Today", id: "today" %>
+      <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "today" %>
 
-      <%= f.check_box :time, id: "tom" %>
-      <%= f.label :time, "Demain", class:"when-kite-spot", for: "tom" %>
+      <%= f.radio_button :time, "Tomorrow", id: "tomorrow" %>
+      <%= f.label :time, "Demain", class:"when-kite-spot", for: "tomorrow" %>
 
-      <%= f.check_box :time, id: "after" %>
+      <%= f.radio_button :time, "After", id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
 
-<%= form_with url: spots_path, method: :get do |f| %>
   <div class="form_geolocation">
     <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
     <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
