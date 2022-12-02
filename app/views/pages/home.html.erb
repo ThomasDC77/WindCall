@@ -16,6 +16,7 @@ la France !</p>
   <p>Séléctionne la difficulté de ton spot</p>
 
     <div class="first-two-div">
+
       <%= f.check_box :difficulty, id: "deb" %>
       <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
@@ -57,16 +58,12 @@ la France !</p>
       <%= f.check_box :time, id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
-<% end %>
-
 
 <%= form_with url: spots_path, method: :get do |f| %>
   <div class="form_geolocation">
     <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
     <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
   </div>
-
-  <div class="button-link-to">
-    <%= link_to "Rechercher tous mes spots !", spots_path, class:"submit-button" %>
-  </div>
+  
+  <%= f.button "search" %>
 <% end %>
