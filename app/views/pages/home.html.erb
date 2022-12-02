@@ -15,21 +15,25 @@ la France !</p>
   <div class="choose-difficulty-spot">
   <p>Séléctionne la difficulté de ton spot</p>
 
+    <%#= desolé jean ro %>
     <div class="first-two-div">
+      <%#= f.check_box "difficulty[]", id: "deb", input_html: {value: "deb"} %>
+      <input type="checkbox" name="difficulty[]" value="Débutant" id="deb" >
+      <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
-      <%= f.check_box :difficulty, id: "Débutant" %>
-      <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "Débutant" %>
-
-      <%= f.check_box :difficulty, id: "Intermédiaire" %>
-      <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "Intermédiaire" %>
+      <%#= f.check_box :difficulty, id: "int" %>
+      <input type="checkbox" name="difficulty[]" value="Intermédiaire" id="int">
+      <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "int" %>
     </div>
 
     <div class="two-last-div">
-      <%= f.check_box :difficulty, id: "Confirmé" %>
-      <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "Confirmé" %>
+      <%#= f.check_box :difficulty, id: "con" %>
+      <input type="checkbox" name="difficulty[]" value="Confirmé" id="con">
+      <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "con" %>
 
-      <%= f.check_box :difficulty, id: "Expert" %>
-      <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "Expert" %>
+      <%#= f.check_box :difficulty, id: "exp" %>
+      <input type="checkbox" name="difficulty[]" value="Expert" id="exp">
+      <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "exp" %>
     </div>
   </div>
 

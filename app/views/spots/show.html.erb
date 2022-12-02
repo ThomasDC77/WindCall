@@ -1,3 +1,7 @@
+<% @weathers.each do |w| %>
+  <%= display_well_time(w.time) %>
+<% end %>
+
 <div class="show-card" style= "background-image: url('<%= cl_image_path @spot.photos.last.key %>')">
   <div class="spot-icons">
     <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
@@ -6,6 +10,7 @@
   <div class="spot-name">
     <h3><%= @spot.name %></h3>
     <p><%= @spot.difficulty %></p>
+    <p><%= @spot.address %></p>
   </div>
 </div>
 
@@ -16,4 +21,3 @@
     <p>Prévision</p>
   </div>
 </div>
-

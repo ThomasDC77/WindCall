@@ -1,7 +1,11 @@
 <div class="spot-cards">
   <% @spots.each do |spot| %>
-    <div class="spot-card">
+    <%= link_to spot_path(spot, weathers_ids: @weathers_ids), class:"spot-card" do %>
       <div>
+
+        <h3> <%= spot.name %></h3>
+        <%= spot.id %>
+        <p> machin machachin machin machin</p>
 
         <h3><%= spot.name %></h3>
         <p>machin machachin machin machin</p>
@@ -9,6 +13,8 @@
 
       </div>
       <img src="http://image.noelshack.com/fichiers/2022/48/3/1669826426-image-processing20200111-22153-1bi0cow.jpg">
-    </div>
+    <% end %>
   <% end %>
 </div>
+
+<%= console %>
