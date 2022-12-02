@@ -37,3 +37,44 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.spot-heart {
+  display: flex;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  #heart {
+    position: absolute;
+    left: -100vw;
+  }
+
+  [for=heart] {
+    color: #F4F4F4;
+    cursor: pointer;
+    font-size: 24px;
+    align-self: center;
+    transition: color 0.2s ease-in-out;
+  }
+
+  [for=heart]::selection {
+    color: none;
+    background: transparent;
+  }
+
+  [for=heart]::moz-selection {
+    color: none;
+    background: transparent;
+  }
+
+  #heart:checked + label {
+    color: #e2264d;
+    background: none;
+    will-change: font-size;
+    animation: heart 0.3s ease;
+  }
+}
+
+
+
+@keyframes heart {0%, 17.5% {font-size: 0;}}
