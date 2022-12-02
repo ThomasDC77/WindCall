@@ -1,8 +1,4 @@
-<% @weathers.each do |w| %>
-  <%= display_well_time(w.time) %>
-<% end %>
-
-<div class="show-card" style= "background-image: url('<%= cl_image_path @spot.photos.last.key %>')">
+<div class="show-card" style= "background-image: url('<%= cl_image_tag @spot.photos.last.key %>')">
   <div class="spot-icons">
   <%= link_to spots_path do %>
     <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
