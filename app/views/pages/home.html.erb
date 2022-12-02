@@ -16,18 +16,18 @@ la France !</p>
   <p>Séléctionne la difficulté de ton spot</p>
 
     <div class="first-two-div">
-      <%= f.radio_button :difficulty, "Difficulté : Débutant", id: "deb" %>
+      <%= f.check_box :difficulty, id: "deb" %>
       <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
-      <%= f.radio_button :difficulty, "Difficulté : Intermédiaire", id: "int" %>
+      <%= f.check_box :difficulty, id: "int" %>
       <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "int" %>
     </div>
 
     <div class="two-last-div">
-      <%= f.radio_button :difficulty, "Difficulté : Confirmé", id: "con" %>
+      <%= f.check_box :difficulty, id: "con" %>
       <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "con" %>
 
-      <%= f.radio_button :difficulty, "Difficulté : Expert", id: "exp" %>
+      <%= f.check_box :difficulty, id: "exp" %>
       <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "exp" %>
     </div>
   </div>
@@ -48,13 +48,13 @@ la France !</p>
   <p>Quand veux-tu aller Kite-Surfer ?</p>
 
     <div class="first-two-div">
-      <%= f.radio_button :time, "Difficulté : Débutant", id: "tod" %>
+      <%= f.check_box :time, id: "tod" %>
       <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "tod" %>
 
-      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "tom" %>
+      <%= f.check_box :time, id: "tom" %>
       <%= f.label :time, "Demain", class:"when-kite-spot", for: "tom" %>
 
-      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "after" %>
+      <%= f.check_box :time, id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
 <% end %>

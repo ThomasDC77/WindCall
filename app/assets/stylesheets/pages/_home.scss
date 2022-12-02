@@ -68,11 +68,11 @@ p{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-input[type="radio"] {
+input[type="checkbox"] {
   display: none;
 }
 
-input[type="radio"]:checked+label {
+input[type="checkbox"]:checked+label {
   background-color: #1C3E46;
   color: #F4F4F4;
 }

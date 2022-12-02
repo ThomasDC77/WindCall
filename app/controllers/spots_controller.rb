@@ -28,7 +28,7 @@ class SpotsController < ApplicationController
       geocode = Geocoder.search(params[:address]).find { |r| r.data["address"]["country_code"] == "fr" }
       lat = geocode.coordinates[0]
       long = geocode.coordinates[1]
-      perimeter = params[:perimeter].present? ? params[:perimeter].to_i : 10
+      perimeter = params[:perimeter].present? ? params[:perimeter].to_i : 1000
       @spots = Spot.near([lat, long], perimeter, units: :km)
     end
   end
