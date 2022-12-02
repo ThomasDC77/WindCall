@@ -1,6 +1,6 @@
 <div class="spot-cards">
   <% @spots.each do |spot| %>
-    <%= link_to spot_path(spot), class:"spot-card" do %>
+    <%= link_to spot_path(spot, weather_id: @weather_ids), class:"spot-card" do %>
       <div>
         <h3><%= spot.name %></h3>
         <h3>machin machachin machin machin</h3>
