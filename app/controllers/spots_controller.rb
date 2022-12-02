@@ -7,10 +7,9 @@ class SpotsController < ApplicationController
   def create
   end
 
-
-
   def index
     @spots = Spot.all
+
     filter_by_difficulty
     filter_by_wind
     filter_by_time
