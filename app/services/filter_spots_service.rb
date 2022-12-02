@@ -8,7 +8,6 @@ class FilterSpotsService
     @time = time
     @address = address
     @perimeter = perimeter
-    @weathers = []
   end
 
   def call
@@ -16,9 +15,9 @@ class FilterSpotsService
     filter_by_wind
     filter_by_time
     filter_by_address
-    @weathers_ids = @weathers.map(&:id)
-    @spots = @spots.joins(:weathers).where(weathers: { id: @weathers_ids })
-    { spots: @spots.uniq, weathers: @weathers, weathers_ids: @weathers_ids }
+    @weather_ids = @weathers.map(&:id)
+    @spots = @spots.joins(:weathers).where(weathers: { id: @weather_ids })
+    { spots: @spots.uniq, weathers: @weathers, weather_ids: @weather_ids }
   end
 
   def filter_by_difficulty
