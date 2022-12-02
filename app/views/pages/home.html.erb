@@ -9,12 +9,11 @@ la France !</p>
   <i class="fa fa-bell"></i>
   M'alerter
 </button>
-<br>
-<br>
+
 
 <%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
-  <p>Séléctionne la DIFFICULTE de ton spot</p>
   <div class="choose-difficulty-spot">
+  <p>Séléctionne la difficulté de ton spot</p>
 
     <%#= desolé jean ro %>
     <div class="first-two-div">
@@ -38,7 +37,7 @@ la France !</p>
     </div>
   </div>
 
-  <p>Selectionne la FORCE du vent !</p>
+  <p>Selectionne la force du vent ! (en Km/h)</p>
 
   <div class="double-slider">
     <span class="value" data-double-slider-target="rangeOne"></span>
@@ -51,23 +50,24 @@ la France !</p>
 
   </div>
 
-  <p>Quand veux-tu aller Kite-Surfer</p>
+  <p>Quand veux-tu aller Kite-Surfer ?</p>
 
     <div class="first-two-div">
-      <%= f.radio_button :time, "today", id: "tod" %>
+      <%= f.check_box :time, id: "tod" %>
       <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "tod" %>
 
-      <%= f.radio_button :time, "tomorrow", id: "tom" %>
+      <%= f.check_box :time, id: "tom" %>
       <%= f.label :time, "Demain", class:"when-kite-spot", for: "tom" %>
 
-      <%= f.radio_button :time, "after", id: "after" %>
+      <%= f.check_box :time, id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
 
+<%= form_with url: spots_path, method: :get do |f| %>
+  <div class="form_geolocation">
+    <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
+    <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
+  </div>
 
-    <div class="form_geolocation">
-      <%= f.text_field :address, placeholder: "address" %>
-      <%= f.text_field :perimeter, placeholder: "> 20km" %>
-    </div>
-    <%= f.button "search" %>
+  <%= f.button "search" %>
 <% end %>
