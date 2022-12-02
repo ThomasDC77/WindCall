@@ -8,8 +8,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-SpotWeather.destroy_all
-puts "SpotWeather détruit"
 Spot.destroy_all
 puts "Spot détruit"
 
@@ -47,7 +45,7 @@ hrefs.each do |href|
   description = description1 + description2
   address = html.search(".elementor-icon-list-text").first.text
 
-  spot = Spot.new(name: title, address: address, latitude: latitude, longitude: longitude, description: description, difficulty: difficulty)
+  spot = Spot.new(name: title, address: address, description: description, difficulty: difficulty)
 
   # imgs = html.search(".jet-engine-gallery-slider__item img")
   # photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }

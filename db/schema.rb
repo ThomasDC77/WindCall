@@ -42,16 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_094637) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "spot_weathers", force: :cascade do |t|
-    t.datetime "time"
-    t.bigint "spot_id", null: false
-    t.bigint "weather_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["spot_id"], name: "index_spot_weathers_on_spot_id"
-    t.index ["weather_id"], name: "index_spot_weathers_on_weather_id"
-  end
-
   create_table "spots", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -66,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_094637) do
   create_table "weathers", force: :cascade do |t|
     t.float "wind_force"
     t.float "wind_direction"
+    t.bigint "spot_id", null: false
     t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,10 +64,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_094637) do
     t.integer "prob_rain"
     t.integer "prob_fog"
     t.integer "temperature"
+    t.index ["spot_id"], name: "index_weathers_on_spot_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "spot_weathers", "spots"
-  add_foreign_key "spot_weathers", "weathers"
+  add_foreign_key "weathers", "spots"
 end

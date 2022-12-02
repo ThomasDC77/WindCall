@@ -77,6 +77,15 @@ input[type="checkbox"]:checked+label {
   color: #F4F4F4;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked+label {
+  background-color: #1C3E46;
+  color: #F4F4F4;
+}
+
 //Quand veux-tu Kite Surfer
 .when-kite-spot{
   text-align: center;
