@@ -5,17 +5,6 @@
 Surf en fonction de tes critères  à travers
 la France !</p>
 
-<%= form_with url: spots_path, method: :get do |f| %>
-  <div class="form_geolocation">
-    <%= f.text_field :address, placeholder: "address" %>
-    <%= f.text_field :perimeter, placeholder: "> 20km" %>
-  </div>
-  <%= f.button "search" %>
-<% end %>
-
-
-
-
 <button class=" button-alert">
   <i class="fa fa-bell"></i>
   M'alerter
@@ -28,18 +17,18 @@ la France !</p>
   <div class="choose-difficulty-spot">
 
     <div class="first-two-div">
-      <%= f.radio_button :difficulty, "Difficulté : Débutant", id: "deb" %>
+      <%= f.radio_button :difficulty, "Débutant", id: "deb" %>
       <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
 
-      <%= f.radio_button :difficulty, "Difficulté : Intermédiaire", id: "int" %>
+      <%= f.radio_button :difficulty, "Intermédiaire", id: "int" %>
       <%= f.label :difficulty, "Intermédiaire", class:"difficulty-spot", for: "int" %>
     </div>
 
     <div class="two-last-div">
-      <%= f.radio_button :difficulty, "Difficulté : Confirmé", id: "con" %>
+      <%= f.radio_button :difficulty, "Confirmé", id: "con" %>
       <%= f.label :difficulty, "Confirmé", class:"difficulty-spot", for: "con" %>
 
-      <%= f.radio_button :difficulty, "Difficulté : Expert", id: "exp" %>
+      <%= f.radio_button :difficulty, "Expert", id: "exp" %>
       <%= f.label :difficulty, "Expert", class:"difficulty-spot", for: "exp" %>
     </div>
   </div>
@@ -60,17 +49,20 @@ la France !</p>
   <p>Quand veux-tu aller Kite-Surfer</p>
 
     <div class="first-two-div">
-      <%= f.radio_button :time, "Difficulté : Débutant", id: "tod" %>
+      <%= f.radio_button :time, "today", id: "tod" %>
       <%= f.label :time, "Aujourd'hui", class:"when-kite-spot", for: "tod" %>
 
-      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "tom" %>
+      <%= f.radio_button :time, "tomorrow", id: "tom" %>
       <%= f.label :time, "Demain", class:"when-kite-spot", for: "tom" %>
 
-      <%= f.radio_button :time, "Difficulté : Intermédiaire", id: "after" %>
+      <%= f.radio_button :time, "after", id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
+
+
+    <div class="form_geolocation">
+      <%= f.text_field :address, placeholder: "address" %>
+      <%= f.text_field :perimeter, placeholder: "> 20km" %>
+    </div>
+    <%= f.button "search" %>
 <% end %>
-<br>
-<br>
-<br>
-  <%= link_to "Rechercher tous mes spots !", spots_path, class:"submit-button" %>

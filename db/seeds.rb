@@ -7,8 +7,11 @@ require 'awesome_print'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+
 SpotWeather.destroy_all
+puts "SpotWeather détruit"
 Spot.destroy_all
+puts "Spot détruit"
 
 file1 = File.open('db/datas/page_1.html')
 file2 = File.open('db/datas/page_2.html')
@@ -29,6 +32,8 @@ hrefs = []
   end
 end
 
+puts "tous les documents sont ouverts"
+
 hrefs.each do |href|
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
@@ -40,10 +45,10 @@ hrefs.each do |href|
   description = description1 + description2
   address = html.search(".elementor-icon-list-text").first.text
 
-  spot = Spot.new(name: title, address: address, description: description, difficulty: difficulty)
+  spot = Spot.new(name: title, address: address, latitude: latitude, longitude: longitude, description: description, difficulty: difficulty)
 
-  imgs = html.search(".jet-engine-gallery-slider__item img")
-  photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
+  # imgs = html.search(".jet-engine-gallery-slider__item img")
+  # photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
 
   # x = 1
   # photo_urls.each do |photo|
@@ -52,8 +57,10 @@ hrefs.each do |href|
   #   x += 1
   # end
   spot.save
+  GetMeteoForSpotService.new(spot).call
 end
 
+puts "base de donnée créée"
 # file_show = File.open('db/datas/page_show.html')
 
 # html = Nokogiri::HTML(file_show)
