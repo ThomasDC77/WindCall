@@ -3,5 +3,5 @@
 <%= @spot.address %>
 
 <% @weathers.each do |w| %>
-  <%= w.time.hour %>
+  <%= display_well_time(w.time) %>
 <% end %>
