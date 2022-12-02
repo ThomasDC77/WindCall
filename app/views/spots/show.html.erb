@@ -4,15 +4,15 @@
 
 <div class="show-card" style= "background-image: url('<%= cl_image_path @spot.photos.last.key %>')">
   <div class="spot-icons">
-  <%= link_to spots_path do %>
-    <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
-  <% end %>
-  <div class="spot-heart">
-    <input id="heart" type="checkbox" />
-    <label for="heart">❤</label>
+    <%= link_to spots_path do %>
+      <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
+    <% end %>
+    <div class="spot-heart">
+      <input id="heart" type="checkbox" />
+      <label for="heart">❤</label>
+    </div>
   </div>
 
-  </div>
   <div class="spot-name">
     <h3><%= @spot.name %></h3>
     <p><%= @spot.difficulty %></p>

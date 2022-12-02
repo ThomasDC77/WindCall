@@ -12,7 +12,6 @@ class SpotsController < ApplicationController
     @spots = results[:spots]
     @weathers = results[:weathers]
     @weathers_ids = results[:weathers_ids]
-    @spots = Spot.all
   end
 
   def show
