@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :pages, only: %i[index new]
   end
 
-  resources :alerts, only: %i[create]
+  resources :alerts, only: %i[new create]
 end

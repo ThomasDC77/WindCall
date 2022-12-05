@@ -1,4 +1,8 @@
 class AlertsController < ApplicationController
+  def new
+    @alert = Alert.new
+  end
+
   def create
     @alert = Alert.new(alert_params)
     if @alert.save!

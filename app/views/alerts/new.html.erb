@@ -1,0 +1,7 @@
+<%= turbo_frame_tag 'modal' do %>
+  <div class="blur"></div>
+  <div class="modal-container">
+      <h3>Créer une notification SMS</h3>
+      <%= render 'form', alert: @alert %>
+  </div>
+<% end %>
