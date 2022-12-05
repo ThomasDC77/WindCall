@@ -1,14 +1,19 @@
-<div class="spot-cards">
-  <% @spots.each do |spot| %>
-    <%= link_to spot_path(spot, weather_ids: @weather_ids.join(" ")), class:"spot-card" do %>
-      <div>
-        <h3><%= spot.name %></h3>
-      </div>
-      <% if spot.photos.attached? %>
-        <%= cl_image_tag spot.photos.first.key %>
-        <% else %>
-      <img src="http://image.noelshack.com/fichiers/2022/48/3/1669826426-image-processing20200111-22153-1bi0cow.jpg">
+<div data-controller="loading" class="container loading">
+  <div class="dots-loader"></div>
+
+    <div class="spot-cards">
+      <% @spots.each do |spot| %>
+        <%= link_to spot_path(spot, weather_ids: @weather_ids.join(" ")), class:"spot-card" do %>
+          <div>
+            <h3><%= spot.name %></h3>
+          </div>
+          <% if spot.photos.attached? %>
+            <%= cl_image_tag spot.photos.first.key %>
+            <% else %>
+          <img src="http://image.noelshack.com/fichiers/2022/48/3/1669826426-image-processing20200111-22153-1bi0cow.jpg">
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+
 </div>

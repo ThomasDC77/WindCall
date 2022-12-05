@@ -11,11 +11,14 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    h3{
+      width: 100px;
+    }
     div {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding: 12px;
+      padding: 48px;
     }
     img{
       object-fit: cover;
