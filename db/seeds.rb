@@ -11,8 +11,6 @@ require 'json'
 Spot.destroy_all
 puts "Spot détruit"
 
-Spot.destroy_all
-
 file1 = File.open('db/datas/page_1.html')
 file2 = File.open('db/datas/page_2.html')
 file3 = File.open('db/datas/page_3.html')
@@ -38,14 +36,14 @@ hrefs.each do |href|
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
 
-  title = html.search("h1.elementor-heading-title").text.gsub(/Spot Kitesurf :/i, "").strip
+  name = html.search("h1.elementor-heading-title").text.gsub(/Spot Kitesurf :/i, "").strip
   difficulty = html.search(".jet-listing-dynamic-field__content").text.gsub(/Difficulté :/i, "").strip
   description1 = html.search("#elementor-tab-content-1451 p").text
   description2 = html.search("#elementor-tab-content-1455 p").text
   description = description1 + description2
   address = html.search(".elementor-icon-list-text").first.text
 
-  spot = Spot.new(name: title, address: address, description: description, difficulty: difficulty)
+  spot = Spot.new(name:, address:, description:, difficulty:)
 
   # imgs = html.search(".jet-engine-gallery-slider__item img")
   # photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
