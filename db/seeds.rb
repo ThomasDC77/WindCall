@@ -45,15 +45,15 @@ hrefs.each do |href|
 
   spot = Spot.new(name:, address:, description:, difficulty:)
 
-  imgs = html.search(".jet-engine-gallery-slider__item img")
-  photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
+  # imgs = html.search(".jet-engine-gallery-slider__item img")
+  # photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
 
-  x = 1
-  photo_urls.each do |photo|
-    file = URI.open(photo)
-    spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
-    x += 1
-  end
+  # x = 1
+  # photo_urls.each do |photo|
+  #   file = URI.open(photo)
+  #   spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
+  #   x += 1
+  # end
   spot.save
   GetMeteoForSpotService.new(spot).call
 end
