@@ -1,4 +1,20 @@
 <div class="spot-cards">
+  <%= form_with model: Alert.new do |f| %>
+    <%# Alert.new permet à form_with de créer la route vers la méthode create de Alert car Alert ne passède pas de page et de méthode new et parce que la méthode create est appelée sur l'index des spots  %>
+    <%= f.hidden_field :difficulty, value: params[:difficulty] %>
+    <%= f.hidden_field :wind_min, value: params[:wind_min] %>
+    <%= f.hidden_field :wind_max, value: params[:wind_max] %>
+    <%= f.hidden_field :time, value: params[:time] %>
+    <%= f.hidden_field :address, value: params[:address] %>
+    <%= f.hidden_field :perimeter, value: params[:perimeter] %>
+    <%= f.telephone_field :telephone_number, value: params[:perimeter] %>
+    <%# hidden_field permet de cacher le champs du formualire et on lui passe en value la params contenu dans l'url %>
+    <button type="submit" class=" button-alert">
+      <i class="fa fa-bell"></i>
+      M'alerter
+    </button>
+  <% end %>
+
   <% @spots.each do |spot| %>
     <%= link_to spot_path(spot, weather_ids: @weather_ids.join(" ")), class:"spot-card" do %>
       <div>
