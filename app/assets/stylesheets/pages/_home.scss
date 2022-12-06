@@ -30,50 +30,55 @@ p{
   height: 360px;
 }
 
-// FA - Alerte button
-.fa{
-  background-color: transparent;
-}
-
-.button-alert{
-  font-size: 15px;
-  color: #1C3E46;
-  padding: 13px;
-  border-radius: 20px;
-  border: none;
-  background-color: #E58819;
-  text-decoration: none;
-  margin: 0 auto;
-}
 //Container
-
 .container{
   padding: 0 6px;
 }
+
+//Logo on button
+.css-logo-button{
+  padding-right: 20px;
+  height: 30px;
+  width: 30px;
+  filter:invert(0);
+}
+
+.css-logo-button.selected{
+  filter:invert(100%);
+}
+
+#logo-button{
+  margin-left: -10px;
+  margin-top: -14px;
+}
+
 // Button de la difficulté du spot
 .choose-difficulty-spot{
   justify-content: space-between;
   margin-bottom: 30px;
-  p{
-    margin-top: 60px;
-  }
 }
 
 .first-two-div{
   display: flex;
   gap: 1rem;
   margin: 10px;
+  div{
+    width: 50%;
+  }
 }
 
 .two-last-div{
   display: flex;
   gap: 1rem;
   margin: 10px;
+  div{
+    width: 50%;
+  }
 }
 .difficulty-spot{
+  display: flex;
+  flex-grow: 1;
   margin-bottom: -5px;
-  text-align: center;
-  width: 50%;
   height: 25px;
   padding: 12px 8px;
   border-radius: 8px;
@@ -123,14 +128,14 @@ input[type="radio"]:checked+label {
 }
 input[type="text"] {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 8px;
   column-gap: 3rem;
   border: none;
   height: 50px;
-  width: 90%;
+  width: 100%;
   text-align: center;
   border-radius: 10px;
   font-size: 15px;
+  box-sizing: border-box;
 }
 
 // Submit Button
@@ -150,7 +155,7 @@ input[type="text"] {
 
 .button-link-to{
   padding-top: 5px;
-  padding-left: 40px;
+  padding-left: 45px;
   text-decoration: none;
   border: none;
   color: white;
@@ -159,7 +164,6 @@ input[type="text"] {
 }
 
 //Caroussel
-
 .begin-caroussel{
   p{
     margin-top: 35px;
@@ -211,28 +215,6 @@ input[type="text"] {
     scroll-snap-align: center;
   }
 }
-
-// * {
-//   scrollbar-color: transparent transparent; /* thumb and track color */
-//   scrollbar-width: 0px;
-// }
-
-// *::-webkit-scrollbar {
-//   width: 0;
-// }
-
-// *::-webkit-scrollbar-track {
-//   background: transparent;
-// }
-
-// *::-webkit-scrollbar-thumb {
-//   background: transparent;
-// }
-
-// * {
-//   -ms-overflow-style: none;
-// }
-
 
 ol, li {
   list-style: none;
@@ -402,4 +384,36 @@ ol, li {
 
 // .carousel::after {
 //   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+// }
+
+.mapboxgl-ctrl-geocoder--icon-search{
+  display: none;
+}
+
+
+.mapboxgl-ctrl-geocoder--button{
+  position: absolute;
+  right: 0;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.5;
+}
+
+.mapboxgl-ctrl-geocoder--icon-loading{
+  display: none;
+}
+
+#map-search{
+  position: relative;
+  width: 100%;
+}
+
+// #perimeter{
+//   width: 20%;
 // }
