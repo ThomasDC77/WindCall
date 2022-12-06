@@ -36,12 +36,13 @@ p{
 }
 
 .button-alert{
-  font-size: 15px;
-  color: #1C3E46;
-  padding: 13px;
-  border-radius: 20px;
-  border: none;
   background-color: #E58819;
+  border: 1px solid #E58819;
+  color: #1C3E46;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   text-decoration: none;
   margin: 0 auto;
 }
