@@ -3,6 +3,12 @@
   <head>
     <title>WindCall</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Grâce à Wind Call, vous allez pouvoir trouver les meilleurs spots de Kite Surf en fonction de vos propres critères !">
+    <meta property="og:title" content="Wind Call - Le meilleur site pour les Kites Surfers !">
+    <meta property="og:image" content="picto.jpg">
+    <meta property="og:site_name" content="Le Wagon"/>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +18,7 @@
 
   <body>
     <%= yield %>
-
+    
     <%= turbo_frame_tag "modal" %>
   </body>
 </html>

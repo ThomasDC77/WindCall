@@ -13,5 +13,9 @@
 @import "components/spots";
 
 body {
-  margin: 8px;
+  margin: 0;
+}
+
+main{
+  min-height: calc(100vh - 160px);
 }
