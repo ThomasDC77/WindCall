@@ -23,7 +23,10 @@ la France !</p>
     <div class="first-two-div">
       <%#= f.check_box "difficulty[]", id: "deb", input_html: {value: "deb"} %>
       <input type="checkbox" name="difficulty[]" value="Débutant" id="deb" >
-      <%= f.label :difficulty, "Débutant", class:"difficulty-spot", for: "deb" %>
+      <label class="difficulty-spot", for="deb">
+        <%= image_tag "baby.png" %>
+        Débutant
+      </label>
 
       <%#= f.check_box :difficulty, id: "int" %>
       <input type="checkbox" name="difficulty[]" value="Intermédiaire" id="int">
@@ -83,51 +86,23 @@ la France !</p>
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
 
-    <li id="carousel__slide1"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper" style="background-image:url(<%= image_url('wissant.jpeg') %>)" id="first-carousel">
-      <div class="div-container-h3">
-        <h3>Baie de Wissant - Pas De Calais</h3>
-      </div>
-        <a href="#carousel__slide4"></a>
-        <a href="#carousel__slide2"></a>
-      </div>
-    </li>
+  <% @spots.each do |spot| %>
+      <li id="carousel__slide1"
+          tabindex="0"
+          class="carousel__slide">
+        <div class="carousel__snapper" style="background-image:url(<%= spot.photos.first.url %>)" id="first-carousel">
+        <div class="div-container-h3">
+          <h3><%= spot.name %></h3>
+        </div>
+          <a href="#carousel__slide4"></a>
+          <a href="#carousel__slide2"></a>
+        </div>
+        <%= link_to "", spot_path(spot), class: "carousel_link" %>
+      </li>
+  <% end %>
 
-    <li id="carousel__slide2"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper" style="background-image:url(<%= image_url('Beauduc.jpeg') %>)" id="first-carousel">
-      <div class="div-container-h3">
-        <h3>Plage de Beauduc - Camargue</h3>
-      </div>
-      <a href="#carousel__slide1"></a>
-      <a href="#carousel__slide3"></a>
-    </li>
 
-    <li id="carousel__slide3"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper" style="background-image:url(<%= image_url('glenan.jpeg') %>)" id="first-carousel">
-      <div class="div-container-h3">
-        <h3>Archipel De Glénan - Finistère</h3>
-      </div>
-      <a href="#carousel__slide2"></a>
-      <a href="#carousel__slide4"></a>
-    </li>
-
-    <li id="carousel__slide4"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper" style="background-image:url(<%= image_url('arcachon.jpeg') %>)" id="first-carousel">
-      <div class="div-container-h3">
-        <h3>Bassin d'Arcahon - Gironde</h3>
-      </div>
-      <a href="#carousel__slide3"></a>
-      <a href="#carousel__slide1"></a>
-    </li>
-  </ol>
+     </ol>
 </section>
 
 </div>

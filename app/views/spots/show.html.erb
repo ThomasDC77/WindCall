@@ -18,16 +18,19 @@
 
 <div class="show-card-infos">
   <p><%= @spot.description %></p>
-  <div class="show-card-weather">
-    <% @weathers&.each do |w| %>
-      <%= display_well_time(w.time) %>
-      <%= w&.wind_force %>
-      <%= w&.gust_wind %>
-      <%= w&.wind_direction %>
-      <%= w&.temperature %>
-      <%= w&.prob_rain %>
-      <%= w&.prob_fog %>
-      <br>
-    <% end %>
-  </div>
+
+  <% if @weathers.present? %>
+    <div class="show-card-weather">
+      <% @weathers&.each do |w| %>
+        <%= display_well_time(w.time) %>
+        <%= w&.wind_force %>
+        <%= w&.gust_wind %>
+        <%= w&.wind_direction %>
+        <%= w&.temperature %>
+        <%= w&.prob_rain %>
+        <%= w&.prob_fog %>
+        <br>
+      <% end %>
+    </div>
+  <% end %>
 </div>
