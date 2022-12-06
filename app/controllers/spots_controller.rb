@@ -8,7 +8,10 @@ class SpotsController < ApplicationController
   end
 
   def index
-    results = FilterSpotsService.new(params[:difficulty], params[:wind_min], params[:wind_max], params[:time], params[:address], params[:perimeter]).call
+    geocode = Geocoder.search(params[:address]).find { |r| r.data["address"]["country_code"] == "fr" }
+    @address_lat = geocode.coordinates[0]
+    @address_long = geocode.coordinates[1]
+    results = FilterSpotsService.new(params[:difficulty], params[:wind_min], params[:wind_max], params[:time], @address_lat, @address_long, params[:perimeter]).call
     @spots = results[:spots]
     # tous les spots filtrés
     @weathers = results[:weathers]
@@ -22,7 +25,8 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     # @weathers = @spot.weathers.where(id: params[:weather_ids].split(" ")) if params[:weather_ids].present?
-    @weathers = @spot.weathers.where(id: cookies[:weather_ids_only_time]&.split("&"))
+    @weathers = @spot.weathers_filtered_by_time(cookies[:weather_ids_only_time].split("&"))
+    p @weathers.count
     # tous les weathers filtré par le time
   end
 

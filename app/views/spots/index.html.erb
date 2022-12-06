@@ -7,15 +7,25 @@
         <span>Alerte</span>
     <% end %>
     <% @spots.each do |spot| %>
-      <%= link_to spot_path(spot), class:"spot-card" do %>
-        <div>
-          <h3><%= spot.name %></h3>
-        </div>
+      <%= link_to spot_path(spot), class:"card-trip" do %>
         <% if spot.photos.attached? %>
-          <%= cl_image_tag spot.photos.first.key %>
-        <% else %>
-        <img src="http://image.noelshack.com/fichiers/2022/48/3/1669826426-image-processing20200111-22153-1bi0cow.jpg">
-        <% end %>
+            <%= cl_image_tag spot.photos.first.key %>
+          <% else %>
+            <img src="http://image.noelshack.com/fichiers/2022/48/3/1669826426-image-processing20200111-22153-1bi0cow.jpg">
+          <% end %>
+        <div class="card-trip-infos">
+          <h2><%= spot.name %></h2>
+          <h2> à <%= spot.distance_between(@address_lat, @address_long) %> km</h2>
+        </div>
+        <div class="card-trip-pricing">
+          <div class="winds-logo">
+            <p><%= image_tag "vent.png", class: "wind-logo" %></p>
+            <p><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{first_good_weather_direction(spot)}deg;" %></p>
+          </div>
+          <div class="difficulty-logo">
+            <div class="<%= difficulty_level(spot.difficulty)%>"></div>
+          </div>
+        </div>
       <% end %>
     <% end %>
   </div>

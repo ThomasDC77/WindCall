@@ -24,6 +24,9 @@ hrefs = []
 
 [file1, file2, file3, file4, file5, file6, file7, file8].each do |file|
   html = Nokogiri::HTML(file)
+  # criterias = html.search(".elementor-icon-list-text").
+  # p criterias
+
   links = html.search("h2.elementor-heading-title a")
   links.each do |link|
     hrefs << link['href']
@@ -33,6 +36,7 @@ end
 puts "tous les documents sont ouverts"
 
 hrefs.each do |href|
+
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
 

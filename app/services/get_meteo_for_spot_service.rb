@@ -21,8 +21,10 @@ class GetMeteoForSpotService
 
       results["forecast"].each do |hour|
         time = hour["datetime"]
-        wind_force = hour["wind10m"]
-        gust_wind = hour["gust10m"]
+        wind_force_km = hour["wind10m"]
+        wind_force = (wind_force_km / 1.852).round(0)
+        gust_wind_km = hour["gust10m"]
+        gust_wind = (gust_wind_km / 1.852).round(0)
         wind_direction = hour["dirwind10m"]
         temperature = hour["temp2m"]
         prob_rain = hour["probarain"]

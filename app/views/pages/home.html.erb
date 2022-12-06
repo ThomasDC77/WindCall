@@ -62,7 +62,7 @@ la France !</p>
     </div>
   </div>
 
-  <p>Selectionne la force du vent ! (en Km/h)</p>
+  <p>Selectionne la force du vent ! (en noeuds)</p>
 
   <div class="double-slider">
     <span class="value" data-double-slider-target="rangeOne"></span>
@@ -108,22 +108,21 @@ la France !</p>
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
 
-  <% @spots.each do |spot| %>
-      <li id="carousel__slide1"
+    <% @spots.each do |spot| %>
+        <li id="carousel__slide1"
           tabindex="0"
           class="carousel__slide">
-        <div class="carousel__snapper" style="background-image:url(<%= spot.photos.first.url %>)" id="first-carousel">
-        <div class="div-container-h3">
-          <h3><%= spot.name %></h3>
-        </div>
-          <a href="#carousel__slide4"></a>
-          <a href="#carousel__slide2"></a>
-        </div>
-        <%= link_to "", spot_path(spot), class: "carousel_link" %>
-      </li>
-  <% end %>
+          <div class="carousel__snapper" style="background-image:url(<%= spot.photos.first.url %>)" id="first-carousel">
+            <div class="div-container-h3">
+              <h3><%= spot.name %></h3>
+            </div>
+            <a href="#carousel__slide4"></a>
+            <a href="#carousel__slide2"></a>
+          </div>
+          <%= link_to "", spot_path(spot), class: "carousel_link" %>
+        </li>
+    <% end %>
 
-
-     </ol>
+  </ol>
 </section>
 </div>
