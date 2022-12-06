@@ -1,11 +1,12 @@
 class FilterSpotsService
-  def initialize(difficulty, wind_min, wind_max, time, address, perimeter)
+  def initialize(difficulty, wind_min, wind_max, time, latitude, longitude, perimeter)
     @spots = Spot.all
     @difficulty = difficulty
     @wind_min = wind_min
     @wind_max = wind_max
     @time = time
-    @address = address
+    @latitude = latitude
+    @longitude = longitude
     @perimeter = perimeter
   end
 
@@ -51,12 +52,9 @@ class FilterSpotsService
   end
 
   def filter_by_address
-    return unless @address.present?
+    return unless @longitude.present? && @latitude.present?
 
-    geocode = Geocoder.search(@address).find { |r| r.data["address"]["country_code"] == "fr" }
-    lat = geocode.coordinates[0]
-    long = geocode.coordinates[1]
     perimeter = @perimeter.present? ? @perimeter.to_i : 1000
-    @spots = @spots.near([lat, long], perimeter)
+    @spots = @spots.near([@latitude, @longitude], perimeter)
   end
 end

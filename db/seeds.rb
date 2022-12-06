@@ -24,6 +24,9 @@ hrefs = []
 
 [file1, file2, file3, file4, file5, file6, file7, file8].each do |file|
   html = Nokogiri::HTML(file)
+  # criterias = html.search(".elementor-icon-list-text").
+  # p criterias
+
   links = html.search("h2.elementor-heading-title a")
   links.each do |link|
     hrefs << link['href']
@@ -33,6 +36,7 @@ end
 puts "tous les documents sont ouverts"
 
 hrefs.each do |href|
+
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
 
@@ -45,15 +49,15 @@ hrefs.each do |href|
 
   spot = Spot.new(name:, address:, description:, difficulty:)
 
-  # imgs = html.search(".jet-engine-gallery-slider__item img")
-  # photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
+  imgs = html.search(".jet-engine-gallery-slider__item img")
+  photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
 
-  # x = 1
-  # photo_urls.each do |photo|
-  #   file = URI.open(photo)
-  #   spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
-  #   x += 1
-  # end
+  x = 1
+  photo_urls.each do |photo|
+    file = URI.open(photo)
+    spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
+    x += 1
+  end
   spot.save
   GetMeteoForSpotService.new(spot).call
 end

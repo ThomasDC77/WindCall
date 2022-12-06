@@ -28,3 +28,103 @@
     }
   }
 }
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 16px;
+}
+
+.card-trip > img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+// .card-trip h2 {
+//   font-size: 8px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+.card-trip p {
+  font-size: 6px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 8px;
+  display: flex;
+  font-size: 8px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  color: black;
+}
+
+.card-trip-pricing {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 16px 12px 16px;
+}
+
+.card-trip-pricing .winds-logo {
+  display: flex;
+  justify-content: start;
+  gap: 4px;
+}
+
+.card-trip-pricing .difficulty-logo {
+  display: flex;
+  justify-content: end;
+}
+
+
+
+.card-trip-infos h2 {
+  color: black;
+  font-size: 16px;
+}
+
+.card-trip-pricing h2 {
+  color: black;
+  font-size: 12px;
+  padding: 8px;
+  margin: 8px 16px;
+}
+
+.level-beginning,
+.level-intermediate,
+.level-confirm,
+.level-expert {
+  background-size: cover;
+  height: 24px;
+  width: 24px;
+}
+
+.level-beginning {
+  background-image: url('tadpole.png');
+}
+
+.level-intermediate {
+  background-image: url('fish.png');
+}
+
+.level-confirm {
+  background-image: url('dolphin.png');
+}
+
+.level-expert {
+  background-size: cover;
+  background-image: url('shark.png');
+  height: 24px;
+  width: 24px;
+}
+
+.wind-logo {
+  height: 24px;
+  width: 24px;
+}
