@@ -18,8 +18,10 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= yield %>
-      <%= turbo_frame_tag "modal" %>
+     <main>
+        <%= yield %>
+     </main>
+    <%= turbo_frame_tag "modal" %>
     <%= render 'shared/footer' %>
 
   </body>
