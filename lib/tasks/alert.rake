@@ -5,6 +5,7 @@ namespace :alert do
       if filtered_spots.any?
         ## send message
       end
+      # on crée une task send dans un environnement, pour toutes les alertes on instancie une variable filtered_spots qui prend tous les spots qui répondent au critères saisis.
     end
   end
 end
