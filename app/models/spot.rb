@@ -3,6 +3,7 @@ class Spot < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  before_destroy :destroy_photos
 
   private
 
@@ -17,5 +18,9 @@ class Spot < ApplicationRecord
       self.longitude = geocode.coordinates[1] if geocode
       self.latitude = geocode.coordinates[0] if geocode
     end
+  end
+
+  def destroy_photos
+    photos.purge
   end
 end

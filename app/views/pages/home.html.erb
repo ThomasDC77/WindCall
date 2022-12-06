@@ -14,7 +14,6 @@ la France !</p>
   M'alerter
 </button>
 
-
 <%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
   <div class="choose-difficulty-spot">
   <p>Séléctionne la difficulté de ton spot</p>
@@ -69,11 +68,15 @@ la France !</p>
       <%= f.radio_button :time, "After", id: "after" %>
       <%= f.label :time, "Après-demain", class:"when-kite-spot", for: "after" %>
     </div>
-
-  <div class="form_geolocation">
-    <%= f.text_field :address, placeholder: "Dans quelle ville veux-tu Kite-Surfer ?" %>
-    <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
-  </div>
+    <div class="form-geolocation">
+      <div data-controller="address-autocomplete"
+        data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+        <%= f.text_field :address, data: {address_autocomplete_target: "address"},
+        style: "display:none;"
+        %>
+      </div>
+      <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
+    </div>
 
   <div class="submit-button">
     <%= f.button "Valide tes critères !", class:"button-link-to" %>
