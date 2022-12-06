@@ -1,11 +1,18 @@
-<h1>Wind Call</h1>
+<div class="header">
+</div>
+
+<h1 class="title">Wind'Call</h1>
 <h2>Trouve ton prochain spot de Kite Surf !</h2>
 
-<p>
-  Découvre les plus beaux spots de Kite
-  Surf en fonction de tes critères  à travers
-  la France !
-</p>
+<div class="container">
+<p>Découvre les plus beaux spots de Kite
+Surf en fonction de tes critères  à travers
+la France !</p>
+
+<button class=" button-alert">
+  <i class="fa fa-bell"></i>
+  M'alerter
+</button>
 
 <%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
   <div class="choose-difficulty-spot">
@@ -68,5 +75,62 @@
       <%= f.text_field :perimeter, placeholder: "Ton périmètre !" %>
     </div>
 
-  <%= f.button "search" %>
+  <div class="submit-button">
+    <%= f.button "Valide tes critères !", class:"button-link-to" %>
+  </div>
 <% end %>
+
+<div class="begin-caroussel">
+  <p>Teste de tout nouveaux spots !</p>
+</div>
+<section class="carousel" aria-label="Gallery">
+  <ol class="carousel__viewport">
+
+    <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper" style="background-image:url(<%= image_url('wissant.jpeg') %>)" id="first-carousel">
+      <div class="div-container-h3">
+        <h3>Baie de Wissant - Pas De Calais</h3>
+      </div>
+        <a href="#carousel__slide4"></a>
+        <a href="#carousel__slide2"></a>
+      </div>
+    </li>
+
+    <li id="carousel__slide2"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper" style="background-image:url(<%= image_url('Beauduc.jpeg') %>)" id="first-carousel">
+      <div class="div-container-h3">
+        <h3>Plage de Beauduc - Camargue</h3>
+      </div>
+      <a href="#carousel__slide1"></a>
+      <a href="#carousel__slide3"></a>
+    </li>
+
+    <li id="carousel__slide3"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper" style="background-image:url(<%= image_url('glenan.jpeg') %>)" id="first-carousel">
+      <div class="div-container-h3">
+        <h3>Archipel De Glénan - Finistère</h3>
+      </div>
+      <a href="#carousel__slide2"></a>
+      <a href="#carousel__slide4"></a>
+    </li>
+
+    <li id="carousel__slide4"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper" style="background-image:url(<%= image_url('arcachon.jpeg') %>)" id="first-carousel">
+      <div class="div-container-h3">
+        <h3>Bassin d'Arcahon - Gironde</h3>
+      </div>
+      <a href="#carousel__slide3"></a>
+      <a href="#carousel__slide1"></a>
+    </li>
+  </ol>
+</section>
+
+</div>
