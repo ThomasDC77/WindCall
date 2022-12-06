@@ -29,6 +29,7 @@
   }
 }
 
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -128,3 +129,27 @@
   height: 24px;
   width: 24px;
 }
+
+.weathers{
+  display: flex;
+  flex-direction: column;
+  .weather-card{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 3rem;
+    p {
+      margin: 0;
+      color: $color-primary
+    }
+    &.colored{
+      background-color: lightgray;
+    }
+    div {
+      width: 12.5%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
