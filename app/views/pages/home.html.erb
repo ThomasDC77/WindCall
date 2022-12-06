@@ -9,11 +9,6 @@
 Surf en fonction de tes critères  à travers
 la France !</p>
 
-<button class=" button-alert">
-  <i class="fa fa-bell"></i>
-  M'alerter
-</button>
-
 <%= form_with url: spots_path, method: "get", data: { controller: "double-slider"} do |f| %>
   <div class="choose-difficulty-spot">
   <p>Séléctionne la difficulté de ton spot</p>
@@ -23,7 +18,7 @@ la France !</p>
       <%#= f.check_box "difficulty[]", id: "deb", input_html: {value: "deb"} %>
       <input type="checkbox" name="difficulty[]" value="Débutant" id="deb" >
       <label class="difficulty-spot", for="deb">
-        <%= image_tag "baby.png" %>
+        <%# <%= image_tag "baby.png" %>
         Débutant
       </label>
 
