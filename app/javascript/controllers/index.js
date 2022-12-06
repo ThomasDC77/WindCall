@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import DoubleSliderController from "./double_slider_controller"
 application.register("double-slider", DoubleSliderController)
 
+import FilterController from "./filter_controller"
+application.register("filter", FilterController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
