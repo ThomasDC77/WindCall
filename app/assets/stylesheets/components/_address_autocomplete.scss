@@ -1,0 +1,13 @@
+.mapboxgl-ctrl-geocoder {
+  display:inline;
+  list-style: none;
+  max-width: none;
+  width: 100%;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.form-geolocation {
+  display: grid;
+  grid-template-columns: 1fr;
+}

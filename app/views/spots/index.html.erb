@@ -32,7 +32,7 @@
   <% end %>
 
   <% @spots.each do |spot| %>
-    <%= link_to spot_path(spot, weather_ids: @weather_ids.join(" ")), class:"spot-card" do %>
+    <%= link_to spot_path(spot), class:"spot-card" do %>
       <div>
         <h3><%= spot.name %></h3>
       </div>
