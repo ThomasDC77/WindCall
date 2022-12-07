@@ -6,15 +6,14 @@ body{
 }
 
 .title{
-  margin-top: -310px;
-  margin-bottom: 210px;
-  margin-left: 8px;
+  color: #ffffff;
+  height: fit-content;
 }
 h2{
-  margin-top: 1px;
+  margin-top: 24px;
   margin-left: 10px;
   font-size: 24px;
-  color: rgb(255, 255, 255);
+  color: #1C3E46;
 }
 
 p{
@@ -23,13 +22,41 @@ p{
   margin-left: 10px;
 }
 
+.home-button{
+  text-decoration: none;
+  color: #1C3E46;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: #DFEEF1;
+  padding: 12px 32px;
+}
+
 //Background image at the top
 .header{
   background-image: url("http://image.noelshack.com/fichiers/2022/49/2/1670320805-kitesurf-dreams-los-roques-venezuela-08.gif");
   background-size: cover;
-  height: 360px;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 200px 0 100px 0;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
+.button-alert{
+  background-color: #E58819;
+  border: 1px solid #E58819;
+  color: #1C3E46;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 0 auto;
+}
 //Container
 .container{
   padding: 0 6px;
@@ -114,6 +141,9 @@ input[type="radio"]:checked+label {
   border: none;
   background-color: #F4F4F4;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .first-two-div{
@@ -133,28 +163,32 @@ input[type="text"] {
   width: 100%;
   text-align: center;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 1rem;
   box-sizing: border-box;
 }
 
 // Submit Button
 .submit-button{
-  width: 70%;
-  height: 30px;
-  float: right;
-  margin-top: 20px;
-  margin-right: 40px;
-  margin-bottom: 20px;
+  // width: 70%;
+  // height: 30px;
+  // float: right;
+  // margin-top: 20px;
+  // margin-right: 40px;
+  // margin-bottom: 20px;
   padding: 20px;
   border: none;
   background-color: #1C3E46;
   color: #DFEEF1;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 0 auto;
 }
 
 .button-link-to{
-  padding-top: 5px;
-  padding-left: 47px;
+  // padding-top: 5px;
+  // padding-left: 47px;
   text-decoration: none;
   border: none;
   color: white;
