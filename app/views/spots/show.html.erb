@@ -50,7 +50,13 @@
   </tr>
 </table>
 
+
 <div class="map">
   <%= cl_image_tag @spot.photos.last.key, height: 300, width: 350, crop: :fill, class:"show-map" %>
   <p><%= image_tag "arrow-up.png", height: 300, width: 350, class: "arrow-map", style: "rotate: #{@weathers.first.wind_direction}deg;" %></p>
+</div>
+
+<div id="options" data-controller="open-on-click">
+  <button data-action="open-on-click#toggleDescription", class="description">Description du spot</button>
+  <p data-open-on-click-target="description" hidden, class="open"><%= @spot.description %></p>
 </div>

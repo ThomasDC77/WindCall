@@ -108,7 +108,7 @@ la France !</p>
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
 
-    <% @spots.each do |spot| %>
+    <% @spots.sample(5).each do |spot| %>
         <li id="carousel__slide1"
           tabindex="0"
           class="carousel__slide">
