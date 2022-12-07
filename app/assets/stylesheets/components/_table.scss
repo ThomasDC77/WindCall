@@ -17,14 +17,21 @@ tbody{
 }
 
 .table-element{
-  &:nth-child(-n+6) {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.336), transparent, transparent);
-  }
+  background: linear-gradient(to right, rgba(74, 74, 77, 0.63), transparent, transparent 40% 100%);
+  // &:nth-child(-n+5) {
+  //   background: linear-gradient(to right, rgba(19, 8, 114, 0.418), transparent, transparent 30% 100%);
+  // }
+  // &:nth-child(n+6) {
+  //   background: linear-gradient(to right, rgba(255, 94, 0, 0.377), transparent, transparent, transparent, transparent);
+  // }
+  // &:nth-child(n+10) {
+  //   background: linear-gradient(to right, rgba(239, 243, 3, 0.329), transparent, transparent, transparent, transparent);
+  // }
+  // &:nth-child(n+14) {
+  //   background: linear-gradient(to right, rgba(19, 8, 114, 0.418), transparent, transparent, transparent, transparent);
+  // }
 }
 
-
-
 .colored {
-  background-color: green;
-  color: white;
+  background: linear-gradient(to right, rgba(5, 175, 90, 0.555), transparent, transparent 200% 100%) !important;
 }

@@ -29,13 +29,13 @@
     </thead>
       <tbody>
         <% @weathers.each do |weather| %>
-        <tr class="table-element<%= 'colored' if criteria_correspond?(weather) %>">
+        <tr class="table-element <%= 'colored' if criteria_correspond?(weather) %>">
           <td class="time">
             <%= display_well_time(weather.time) %>
           </td>
           <td class="wind">
             <i class="fa-solid fa-location-arrow"></i>
-            <%= weather.wind_force %>
+            <%= weather.wind_force.to_i %>
           </td>
           <td class="wind-gust time">
             <i class="fa-solid fa-tornado"></i>
