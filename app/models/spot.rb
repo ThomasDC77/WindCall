@@ -13,6 +13,10 @@ class Spot < ApplicationRecord
     weathers.where(id: weather_ids_only_time)
   end
 
+  def weathers_filtered(weathers_filtered)
+    weathers.where(id: weathers_filtered)
+  end
+
   private
 
   def geocode

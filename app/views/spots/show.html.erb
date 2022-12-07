@@ -25,7 +25,7 @@
             <p><%= display_well_time(weather.time) %></p>
           </div>
           <div class="wind-direction">
-            <i class="fa-solid fa-location-arrow"></i>
+            <i><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></i>
             <p><%= weather.wind_direction %></p>
           </div>
             <div class="wind-force">
@@ -53,7 +53,7 @@
 
 <div class="map">
   <%= cl_image_tag @spot.photos.last.key, height: 300, width: 350, crop: :fill, class:"show-map" %>
-  <p><%= image_tag "arrow-up.png", height: 300, width: 350, class: "arrow-map", style: "rotate: #{@weathers.first.wind_direction}deg;" %></p>
+  <p><%= image_tag "arrow-up.png", height: 300, width: 350, class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
 </div>
 
 <div id="options" data-controller="open-on-click">
