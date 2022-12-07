@@ -70,9 +70,9 @@ puts "base de donnée créée"
 
 # address = html.search(".elementor-icon-list-text").first.text
 # code_post = address.scan(/\d+/)
-# ap code_post.first
+
 # geocode = Geocoder.search(code_post.first)
-# ap geocode.first.coordinates
+
 
 # title = html.search("h1.elementor-heading-title").text
 # difficulty = html.search(".jet-listing-dynamic-field__content").text
