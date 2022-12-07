@@ -10,12 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/spots";
 
 body {
   margin: 0;
 }
 
 main{
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 100px);
 }
