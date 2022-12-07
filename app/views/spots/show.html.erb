@@ -33,7 +33,7 @@
             <%= display_well_time(weather.time) %>
           </td>
           <td class="wind">
-            <i><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></i>
+            <i><%#= image_tag "arrow", class: "normal-h test", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></i>
             <%= weather.wind_force.to_i %>nd
           </td>
           <td class="wind-gust time">
