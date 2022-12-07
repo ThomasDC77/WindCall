@@ -15,140 +15,46 @@
     <p><%= @spot.address %></p>
   </div>
 </div>
-
-<table>
-  <tr>
-    <th class="weathers">
-      <% @weathers.each do |weather| %>
-        <div class="weather-card <%= 'colored' if criteria_correspond?(weather) %>">
-          <div class="time">
-            <p><%= display_well_time(weather.time) %></p>
-          </div>
-          <div class="wind-direction">
+<div>
+  <table class="weather-card">
+    <thead>
+      <tr class="head-table">
+        <th>Heure</th>
+        <th>Vent</th>
+        <th>Rafale</th>
+        <th>Météo</th>
+        <th>Air</th>
+        <th>Fog</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @weathers.each do |weather| %>
+        <tr class="table-element<%= 'colored' if criteria_correspond?(weather) %>">
+          <td class="time">
+            <%= display_well_time(weather.time) %>
+          </td>
+          <td class="wind">
             <i class="fa-solid fa-location-arrow"></i>
-            <p><%= weather.wind_direction %></p>
-          </div>
-            <div class="wind-force">
-            <i class="fa-solid fa-wind"></i>
-              <p><%= weather.wind_force %></p>
-            </div>
-            <div class="wind-gust">
-              <i class="fa-solid fa-tornado"></i>
-              <p><%= weather.gust_wind %></p>
-            </div>
-            <div class="rain">
-              <i class="fa-solid fa-droplet"></i>
-              <p><%= weather.prob_rain %></p>
-            </div>
-            <div class="temperature">
-              <i class="fa-solid fa-temperature-three-quarters"></i>
-              <p><%= weather.temperature %></p>
-            </div>
-        </div>
-      <% end %>
-    </th>
-  </tr>
-</table>
-
-<% if @weathers.present? %>
-  <table>
-    <caption>La météo du matin</caption>
-    <thead>
-      <tr>
-      <th scope="col"> heure </th>
-      <% @weathers&.first(8).each do |w|%>
-        <th scope="col"><%= display_well_time(w.time) %></th>
-      <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">force km/h</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.wind_force.to_i %></td>
-
+            <%= weather.wind_force %>
+          </td>
+          <td class="wind-gust time">
+            <i class="fa-solid fa-tornado"></i>
+            <%= weather.gust_wind %>
+          </td>
+          <td class="rain time">
+            <i class="fa-solid fa-droplet"></i>
+            <%= weather.prob_rain %>
+          </td>
+          <td class="temperature time">
+            <i class="fa-solid fa-temperature-three-quarters"></i>
+            <%= weather.temperature %>
+          </td>
+          <td class="wave-height time">
+            <i class="fa-solid fa-wave-sine"></i>
+            <%= weather.prob_fog %>
+          </td>
+        </tr>
         <% end %>
-      </tr>
-      <tr>
-        <th scope="row">rafale km/h</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.gust_wind %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">direction 360°</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.wind_direction.to_i %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">température air C°</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.temperature %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">pluie %</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.prob_rain %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">brouillard %</th>
-        <% @weathers&.first(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.prob_fog %></td>
-        <% end %>
-      </tr>
-    </tbody>
+      </tbody>
   </table>
-
-  <table>
-    <caption>La météo de l'après-midi</caption>
-    <thead>
-      <tr>
-      <th scope="col"> heure </th>
-      <% @weathers&.last(8).each do |w|%>
-        <th scope="col"><%= display_well_time(w.time) %></th>
-      <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">force km/h</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.wind_force.to_i %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">rafale km/h</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.gust_wind %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">direction 360°</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.wind_direction.to_i %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">température air C°</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.temperature %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">pluie %</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.prob_rain %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <th scope="row">brouillard %</th>
-        <% @weathers&.last(8).each do |w| %>
-          <td class="<%= 'colored' if criteria_correspond?(w) %>"><%= w&.prob_fog %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+</div>

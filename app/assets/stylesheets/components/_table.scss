@@ -1,18 +1,28 @@
 table {
   table-layout: fixed;
   border-collapse: collapse;
-  border: 3px solid #1C3E46;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+td{
+  padding: 8px 0;
+}
+
+tbody{
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px $color-primary;
+}
+
+.table-element{
+  &:nth-child(-n+6) {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.336), transparent, transparent);
+  }
 }
 
 
-tbody tr:nth-child(odd) {
-  border: 1px solid black;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #DFEEF1;
-  border: 1px solid black;
-}
 
 .colored {
   background-color: green;
