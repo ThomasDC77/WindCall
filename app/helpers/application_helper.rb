@@ -23,4 +23,8 @@ module ApplicationHelper
   def first_good_weather_direction(spot)
     spot.weathers.where(id: cookies[:weather_ids_only_time]).first.wind_direction
   end
+
+  def first_good_weather_direction_show(weather)
+    weather.where(id: cookies[:weather_ids_only_time]).first.wind_direction
+  end
 end
