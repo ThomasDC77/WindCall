@@ -1,11 +1,11 @@
-<%= render 'shared/navbar' %>
+<%# <%= render 'shared/navbar' %>
 <div class="header">
+  <h1 class="title">Wind'Call</h1>
+  <a href="#start-direction" class="home-button"> Let's go</a>
 </div>
 
-<h1 class="title">Wind'Call</h1>
+<div class="container" id="start-direction">
 <h2>Trouve ton prochain spot de Kite Surf !</h2>
-
-<div class="container">
 <p>Découvre les plus beaux spots de Kite
 Surf en fonction de tes critères  à travers
 la France !</p>
@@ -108,7 +108,7 @@ la France !</p>
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
 
-    <% @spots.each do |spot| %>
+    <% @spots.sample(5).each do |spot| %>
         <li id="carousel__slide1"
           tabindex="0"
           class="carousel__slide">

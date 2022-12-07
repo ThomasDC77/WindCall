@@ -3,7 +3,7 @@
 #
 # Examples:
 
-require 'awesome_print'
+# require 'awesome_print'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
@@ -35,19 +35,19 @@ end
 
 puts "tous les documents sont ouverts"
 
-hrefs.each do |href|
+hrefs.each_with_index do |href, i|
 
   uri = URI(href).read
   html = Nokogiri::HTML(uri)
 
   name = html.search("h1.elementor-heading-title").text.gsub(/Spot Kitesurf :/i, "").strip
   difficulty = html.search(".jet-listing-dynamic-field__content").text.gsub(/Difficulté :/i, "").strip
-  description1 = html.search("#elementor-tab-content-1451 p").text
-  description2 = html.search("#elementor-tab-content-1455 p").text
-  description = description1 + description2
+  description = html.search("#elementor-tab-content-1451 p").text
+  technique = html.search("#elementor-tab-content-1452 p").text
+  danger = html.search("#elementor-tab-content-1455 p").text
   address = html.search(".elementor-icon-list-text").first.text
 
-  spot = Spot.new(name:, address:, description:, difficulty:)
+  spot = Spot.new(name:, address:, description:, difficulty:, technique:, danger:)
 
   imgs = html.search(".jet-engine-gallery-slider__item img")
   photo_urls = imgs.reduce([]) { |arr, img| arr << img['data-src'] }
@@ -58,6 +58,7 @@ hrefs.each do |href|
     spot.photos.attach(io: file, filename: "#{spot.name}-#{x}", content_type: "image/png")
     x += 1
   end
+  spot.photos.attach(io: File.open("#{Rails.root}/public/#{i + 1}.png"), filename: "#{spot.name}-maps", content_type: "image/png")
   spot.save
   GetMeteoForSpotService.new(spot).call
 end

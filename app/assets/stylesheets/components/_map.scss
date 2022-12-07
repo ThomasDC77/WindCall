@@ -1,0 +1,20 @@
+.map {
+  position: relative;
+}
+
+.show-map {
+  border-radius: 24px;
+  margin: 16px;
+  background-image: cover;
+}
+
+.arrow-map {
+	position: absolute;
+	inset: 0;
+	width: 120px;
+	height: 180px;
+	background-position: absolute;
+	z-index:1;
+	margin:auto;
+  opacity: 0.70;
+}

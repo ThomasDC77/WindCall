@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @spots = Spot.first(4)
+    @spots = Spot.all
   end
 end

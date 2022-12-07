@@ -18,3 +18,9 @@ application.register("hello", HelloController)
 
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
+import OpenOnClickController from "./open_on_click_controller"
+application.register("open-on-click", OpenOnClickController)
