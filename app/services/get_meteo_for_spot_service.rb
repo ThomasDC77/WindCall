@@ -11,7 +11,6 @@ class GetMeteoForSpotService
     day = 0
     3.times do
       url = "https://api.meteo-concept.com/api/forecast/daily/#{day}/hourly?token=#{ENV["METEO_TOKEN"]}&hourly=true&latlng=#{latitude},#{longitude}"
-      ap url
       url = URI(url)
       response = Net::HTTP.get(url)
       results = JSON.parse(response)
