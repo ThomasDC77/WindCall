@@ -23,6 +23,7 @@
 </div>
 <div data-controller="table">
 
+<% unless params[:from_home].present? %>
   <table class="weather-card" data-table-target="goodWeathers" >
     <thead>
       <tr class="head-table">
@@ -58,7 +59,7 @@
         </tr>
         <% end %>
       </tbody>
-  </table>
+    </table>
 
   <table class="weather-card hidden" data-table-target="allWeathers">
     <thead>
@@ -70,8 +71,8 @@
         <th>Air</th>
       </tr>
     </thead>
-      <tbody>
-        <% @weathers.each do |weather| %>
+    <tbody>
+      <% @weathers.each do |weather| %>
         <tr class="table-element <%= 'colored' if criteria_correspond?(weather) %>">
           <td class="time">
             <%= display_well_time(weather.time) %>
@@ -93,17 +94,22 @@
             <%= weather.temperature %>°C
           </td>
         </tr>
-        <% end %>
-      </tbody>
+      <% end %>
+    </tbody>
   </table>
   <button class="allInfos" data-action="click->table#changeTable">Afficher toute les heures</button>
-</div>
-
 
 <div class="map">
   <%= cl_image_tag @spot.photos.last.key, class:"show-map" %>
   <p><%= image_tag "arrow-up.png", class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
 </div>
+
+  <div class="map">
+    <%= cl_image_tag @spot.photos.last.key, class:"show-map" %>
+    <p><%#= image_tag "arrow-up.png", class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
+  </div>
+<% end %>
+
 
 <div id="options" data-controller="open-on-click">
   <button data-action="open-on-click#toggleDescription", class="description">Description du spot</button>
