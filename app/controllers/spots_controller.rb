@@ -25,8 +25,8 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     # @weathers = @spot.weathers.where(id: params[:weather_ids].split(" ")) if params[:weather_ids].present?
+    @good_weathers = @spot.weathers_filtered(cookies[:weather_ids].gsub('[', "").gsub("]", "").split(", ").map(&:to_i))
     @weathers = @spot.weathers_filtered_by_time(cookies[:weather_ids_only_time].split("&"))
-    @good_weathers = @spot.weathers_filtered(cookies[:weather_ids_only_time].split("&"))
     # tous les weathers filtré par le time
   end
 

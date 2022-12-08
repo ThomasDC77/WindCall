@@ -12,6 +12,7 @@
 @import "pages/index";
 
 body {
+  padding: 24px;
   margin: 0;
 }
 
@@ -22,5 +23,8 @@ main{
 
 html{
   scroll-behavior: smooth;
+}
 
+.hidden {
+  display: none !important;
 }

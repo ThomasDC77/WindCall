@@ -24,3 +24,6 @@ application.register("modal", ModalController)
 
 import OpenOnClickController from "./open_on_click_controller"
 application.register("open-on-click", OpenOnClickController)
+
+import TableController from "./table_controller"
+application.register("table", TableController)
