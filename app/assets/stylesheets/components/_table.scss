@@ -1,12 +1,17 @@
+.contenair-show {
+  margin: 24px;
+}
+
 table {
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: rgb(251, 251, 251);
   border-radius: 12px;
   box-shadow: 0 0 20px #cfdff4;
+  overflow: hidden;
   &.hidden {
     display: none;
   }
@@ -30,6 +35,7 @@ tbody{
 th {
   padding: 1rem 0 0.5rem 0;
 }
+<<<<<<< HEAD
 
 // .table-element{
 //   background: linear-gradient(to right, rgba(74, 74, 77, 0.486), transparent, transparent 200% 100%);
@@ -51,3 +57,9 @@ th {
 // .colored {
 //   background: linear-gradient(to right, rgba(5, 175, 90, 0.555), transparent, transparent 200% 100%) !important;
 // }
+=======
+
+.colored {
+  background-color: rgba(141, 244, 143, 0.537);
+}
+>>>>>>> adf885d (all fixed)
