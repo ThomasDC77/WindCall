@@ -18,100 +18,104 @@
       <p><%= @spot.address %></p>
     </div>
   </div>
-  <div class="fullDate">
-    <p>
-      <%= translate_day(@weathers.first.time.strftime("%A")) %>
-      <%= @weathers.first.time.strftime("%d")%>
-      <%= translate_month(@weathers.first.time.strftime("%B")) %>
-    </p>
-  </div>
-  <div data-controller="table">
 
-    <table class="weather-card" data-table-target="goodWeathers" >
-      <thead>
-        <tr class="head-table">
-          <th>Heure</th>
-          <th>Vent</th>
-          <th>Rafale</th>
-          <th>Pluie</th>
-          <th>Air</th>
-        </tr>
-      </thead>
-        <tbody>
-          <% @good_weathers.each do |weather| %>
-          <tr class="table-element colored">
-            <td class="time">
-              <%= display_well_time(weather.time) %>
-            </td>
-            <td class="wind">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
-              </svg>
-              <%= weather.wind_force.to_i %>nd
-            </td>
-            <td class="wind-gust time">
-              <i class="fa-solid fa-tornado"></i>
-              <%= weather.gust_wind %>nd
-            </td>
-            <td class="rain time">
-              <i class="fa-solid fa-droplet"></i>
-              <%= weather.prob_rain %>%
-            </td>
-            <td class="temperature time">
-              <i class="fa-solid fa-temperature-three-quarters"></i>
-              <%= weather.temperature %>°C
-            </td>
+  <% unless params[:from_home].present? %>
+    <div class="fullDate">
+      <p>
+        <%= translate_day(@weathers.first.time.strftime("%A")) %>
+        <%= @weathers.first.time.strftime("%d")%>
+        <%= translate_month(@weathers.first.time.strftime("%B")) %>
+      </p>
+    </div>
+
+    <div data-controller="table">
+
+      <table class="weather-card" data-table-target="goodWeathers" >
+        <thead>
+          <tr class="head-table">
+            <th>Heure</th>
+            <th>Vent</th>
+            <th>Rafale</th>
+            <th>Pluie</th>
+            <th>Air</th>
           </tr>
-          <% end %>
-        </tbody>
-    </table>
+        </thead>
+          <tbody>
+            <% @good_weathers.each do |weather| %>
+            <tr class="table-element colored">
+              <td class="time">
+                <%= display_well_time(weather.time) %>
+              </td>
+              <td class="wind">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+                </svg>
+                <%= weather.wind_force.to_i %>nd
+              </td>
+              <td class="wind-gust time">
+                <i class="fa-solid fa-tornado"></i>
+                <%= weather.gust_wind %>nd
+              </td>
+              <td class="rain time">
+                <i class="fa-solid fa-droplet"></i>
+                <%= weather.prob_rain %>%
+              </td>
+              <td class="temperature time">
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+                <%= weather.temperature %>°C
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+      </table>
 
-    <table class="weather-card hidden" data-table-target="allWeathers">
-      <thead>
-        <tr class="head-table">
-          <th>Heure</th>
-          <th>Vent</th>
-          <th>Rafale</th>
-          <th>Pluie</th>
-          <th>Air</th>
-        </tr>
-      </thead>
-        <tbody>
-          <% @weathers.each do |weather| %>
-          <tr class="table-element <%= 'colored' if criteria_correspond?(weather) %>">
-            <td class="time">
-              <%= display_well_time(weather.time) %>
-            </td>
-            <td class="wind">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
-              </svg>
-              <%= weather.wind_force.to_i %>nd
-            </td>
-            <td class="wind-gust time">
-              <i class="fa-solid fa-tornado"></i>
-              <%= weather.gust_wind %>nd
-            </td>
-            <td class="rain time">
-              <i class="fa-solid fa-droplet"></i>
-              <%= weather.prob_rain %>%
-            </td>
-            <td class="temperature time">
-              <i class="fa-solid fa-temperature-three-quarters"></i>
-              <%= weather.temperature %>°C
-            </td>
+      <table class="weather-card hidden" data-table-target="allWeathers">
+        <thead>
+          <tr class="head-table">
+            <th>Heure</th>
+            <th>Vent</th>
+            <th>Rafale</th>
+            <th>Pluie</th>
+            <th>Air</th>
           </tr>
-          <% end %>
-        </tbody>
-    </table>
-    <button class="allInfos" data-action="click->table#changeTable">Voir plus</button>
-  </div>
+        </thead>
+          <tbody>
+            <% @weathers.each do |weather| %>
+            <tr class="table-element <%= 'colored' if criteria_correspond?(weather) %>">
+              <td class="time">
+                <%= display_well_time(weather.time) %>
+              </td>
+              <td class="wind">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+                </svg>
+                <%= weather.wind_force.to_i %>nd
+              </td>
+              <td class="wind-gust time">
+                <i class="fa-solid fa-tornado"></i>
+                <%= weather.gust_wind %>nd
+              </td>
+              <td class="rain time">
+                <i class="fa-solid fa-droplet"></i>
+                <%= weather.prob_rain %>%
+              </td>
+              <td class="temperature time">
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+                <%= weather.temperature %>°C
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+      </table>
+      <button class="allInfos" data-action="click->table#changeTable">Voir plus</button>
+    </div>
 
+    <div class="map">
+      <%= cl_image_tag @spot.photos.last.key, class:"show-map" %>
+      <p><%= image_tag "arrow-up.png", class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
+    </div>
+  <% end %>
 
-  <div class="map">
-    <%= cl_image_tag @spot.photos.last.key, class:"show-map" %>
-    <p><%= image_tag "arrow-up.png", class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
-  </div>
 
   <a href="#option-technique">
     <div id="option-description" data-controller="open-on-click">

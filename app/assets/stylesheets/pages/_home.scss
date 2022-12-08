@@ -35,6 +35,15 @@ p{
   padding: 12px 32px;
 }
 
+#start-direction {
+  scroll-margin-top: 120px;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+}
+
 //Background image at the top
 .header{
   background-image: url("http://image.noelshack.com/fichiers/2022/49/2/1670320805-kitesurf-dreams-los-roques-venezuela-08.gif");
