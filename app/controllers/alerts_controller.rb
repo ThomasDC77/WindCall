@@ -5,9 +5,10 @@ class AlertsController < ApplicationController
 
   def create
     @alert = Alert.new(alert_params)
-    if @alert.save!
-      redirect_back(fallback_location: spots_path)
-    end
+    return unless @alert.save!
+
+    SendAlertJob.new(@alert.id, "welcome").perform_now
+    redirect_back(fallback_location: spots_path)
     # on crée une seule alerte avec les params récupérer via le formulaire de l'index et si on arrive a save on redirige vers la même page (redirect_back) pour conserver les params rentrés dans la page homes pour la liste d'index
   end
 

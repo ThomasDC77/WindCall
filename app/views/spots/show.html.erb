@@ -1,5 +1,7 @@
 <div class="contenair-show">
-  <div class="show-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @spot.photos.first.key %>')">
+
+  <section class="carousel show" aria-label="Gallery">
+
     <div class="spot-icons">
       <%= link_to :back do %>
         <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
@@ -14,10 +16,20 @@
     </div>
 
     <div class="spot-infos">
-      <p><%= @spot.name %></p>
-      <p><%= @spot.address %></p>
+      <h3><%= @spot.name %></h3>
+      <h3><%= @spot.address %></h3>
     </div>
-  </div>
+    <ol class="carousel__viewport show">
+      <% @spot.photos.each do |photo| %>
+        <li id="carousel__slide1"
+          tabindex="0"
+          class="carousel__slide">
+          <div class="carousel__snapper show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path photo.key %>')" id="first-carousel">
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </section>
 
   <% unless params[:from_home].present? %>
     <div class="fullDate">
@@ -111,6 +123,7 @@
     </div>
 
     <div class="map">
+
       <%= cl_image_tag @spot.photos.last.key, class:"show-map" %>
       <p><%= image_tag "arrow-up.png", class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
     </div>

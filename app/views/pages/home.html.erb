@@ -90,7 +90,7 @@ la France !</p>
     <div class="form-geolocation">
       <div data-controller="address-autocomplete" id="map-search"
         data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-        <%= f.text_field :address, data: {address_autocomplete_target: "address"},
+        <%= f.text_field :address, place: "Cherche ta ville", data: {address_autocomplete_target: "address"},
         style: "display:none;"
         %>
       </div>
@@ -108,18 +108,18 @@ la France !</p>
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
     <% @spots.sample(5).each do |spot| %>
-        <li id="carousel__slide1"
-          tabindex="0"
-          class="carousel__slide">
-          <div class="carousel__snapper" style="background-image:url(<%= spot.photos.first.url %>)" id="first-carousel">
-            <div class="div-container-h3">
-              <h3><%= spot.name %></h3>
-            </div>
-            <a href="#carousel__slide4"></a>
-            <a href="#carousel__slide2"></a>
+      <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+        <div class="carousel__snapper" style="background-image:url(<%= spot.photos.first.url %>)" id="first-carousel">
+          <div class="div-container-h3">
+            <h3><%= spot.name %></h3>
           </div>
-          <%= link_to "", spot_path(spot, from_home: "true"), class: "carousel_link" %>
-        </li>
+          <a href="#carousel__slide4"></a>
+          <a href="#carousel__slide2"></a>
+        </div>
+        <%= link_to "", spot_path(spot, from_home: "true"), class: "carousel_link" %>
+      </li>
     <% end %>
   </ol>
 </section>

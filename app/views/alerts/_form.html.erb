@@ -6,7 +6,7 @@
     <%= f.hidden_field :time, value: params[:time] %>
     <%= f.hidden_field :address, value: params[:address] %>
     <%= f.hidden_field :perimeter, value: params[:perimeter] %>
-    <%= f.telephone_field :telephone_number, placeholder: "Ex: 06.xx.xx.xx.xx", value: params[:telephone_number], style: "margin-bottom: 1rem;", class: "inputField" %>
+    <%= f.telephone_field :telephone_number, placeholder: "Ex: 06.xx.xx.xx.xx", style: "margin-bottom: 1rem;", class: "inputField" %>
     <%# hidden_field permet de cacher le champs du formualire et on lui passe en value la params contenu dans l'url %>
     <button type="submit" class="button-alert" >
       <i class="fa fa-bell fa-shake"></i>

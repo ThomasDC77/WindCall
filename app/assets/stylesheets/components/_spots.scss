@@ -13,7 +13,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
   color: $text-white;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .spot-infos{
