@@ -36,11 +36,11 @@ class FilterSpotsService
 
     case @time
     when "Today"
-      @weathers = Weather.where(time: [DateTime.now.beginning_of_day + 6.hour..DateTime.now.end_of_day - 2.hour])
+      @weathers = Weather.where(time: [DateTime.now.beginning_of_day + 7.hour..DateTime.now.end_of_day - 2.hour])
     when "Tomorrow"
-      @weathers = Weather.where(time: [DateTime.tomorrow.beginning_of_day + 6.hour..DateTime.tomorrow.end_of_day - 2.hour])
+      @weathers = Weather.where(time: [DateTime.tomorrow.beginning_of_day + 7.hour..DateTime.tomorrow.end_of_day - 2.hour])
     when "After"
-      @weathers = Weather.where(time: [2.days.from_now.beginning_of_day + 6.hour..2.days.from_now.end_of_day - 2.hour])
+      @weathers = Weather.where(time: [2.days.from_now.beginning_of_day + 7.hour..2.days.from_now.end_of_day - 2.hour])
     end
   end
 

@@ -4,7 +4,7 @@
       <%= link_to :back do %>
         <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i>
       <% end %>
-       <%= link_to :back do %>
+      <%= link_to :root do %>
         <i class="fa-solid fa-house" style='font-size:24px'></i>
       <% end %>
       <div class="spot-heart">
@@ -41,7 +41,7 @@
           </tr>
         </thead>
           <tbody>
-            <% @good_weathers.each do |weather| %>
+            <% @good_weathers.first(3).each do |weather| %>
             <tr class="table-element colored">
               <td class="time">
                 <%= display_well_time(weather.time) %>
