@@ -11,6 +11,6 @@ export default class extends Controller {
 
 
   toggleDescription() {
-    this.descriptionTarget.hidden = !this.descriptionTarget.hidden
+    this.descriptionTarget.classList.toggle("hidden")
   }
 }

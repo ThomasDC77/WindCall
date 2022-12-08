@@ -4,7 +4,7 @@
   <div class="spot-cards">
     <% if @spots.present? %>
       <%= link_to new_alert_path, data: { turbo_frame: "modal" }, class: "button-alert" do %>
-          <i class="fa fa-bell"></i>
+          <i class="fa fa-bell fa-shake"></i>
           <span>Alerte</span>
       <% end %>
       <% @spots.each do |spot| %>

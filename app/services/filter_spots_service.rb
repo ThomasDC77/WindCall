@@ -34,14 +34,13 @@ class FilterSpotsService
   def filter_by_time
     return unless @time.present?
 
-    @weathers = Weather.where(time: Time.parse("7am")..Time.parse("10pm"))
     case @time
     when "Today"
-      @weathers = @weathers.where(time: [DateTime.now.beginning_of_day..DateTime.now.end_of_day])
+      @weathers = Weather.where(time: [DateTime.now.beginning_of_day + 6.hour..DateTime.now.end_of_day - 2.hour])
     when "Tomorrow"
-      @weathers = @weathers.where(time: [DateTime.tomorrow.beginning_of_day..DateTime.tomorrow.end_of_day])
+      @weathers = Weather.where(time: [DateTime.tomorrow.beginning_of_day + 6.hour..DateTime.tomorrow.end_of_day - 2.hour])
     when "After"
-      @weathers = @weathers.where(time: [2.days.from_now.beginning_of_day..2.days.from_now.end_of_day])
+      @weathers = Weather.where(time: [2.days.from_now.beginning_of_day + 6.hour..2.days.from_now.end_of_day - 2.hour])
     end
   end
 
