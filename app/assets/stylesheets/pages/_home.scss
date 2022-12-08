@@ -8,6 +8,9 @@ body{
 .title{
   color: #ffffff;
   height: fit-content;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
+  font-style: italic;
 }
 h2{
   margin-top: 24px;
@@ -37,7 +40,6 @@ p{
   background-image: url("http://image.noelshack.com/fichiers/2022/49/2/1670320805-kitesurf-dreams-los-roques-venezuela-08.gif");
   background-size: cover;
   background-position: center;
-
   height: 100vh;
   display: flex;
   flex-direction: column;
