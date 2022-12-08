@@ -21,7 +21,7 @@
           <div class="card-trip-pricing">
             <div class="winds-logo">
               <p><%= image_tag "vent.png", class: "wind-logo" %></p>
-              <p><%#= image_tag "arrow", class: "normal-h test", style: "rotate: #{first_good_weather_direction(spot)}deg;" %></p>
+              <p><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{first_good_weather_direction(spot)}deg;" %></p>
             </div>
             <div class="difficulty-logo">
               <div class="<%= difficulty_level(spot.difficulty)%>"></div>
@@ -30,15 +30,8 @@
         <% end %>
       <% end %>
     <% else %>
-      <div>Sorry bro ... </div>
-      <%= link_to "Refaire une recherche !", root_path, class: "submit-button" %>
+    <div>Sorry bro ... </div>
 
-      <div>Ou alors lâches ton num et on t'envoie une notif dès que tes conditions sont réunies</div>
-
-      <%= link_to new_alert_path, data: { turbo_frame: "modal" }, class: "button-alert" do %>
-        <i class="fa fa-bell"></i>
-        <span>Alerte</span>
-      <% end %>
+    <%= link_to "Refaire une recherche !", root_path, class: "submit-button"  %>
     <% end %>
-  </div>
 </div>
