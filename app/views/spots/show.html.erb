@@ -15,6 +15,16 @@
   </div>
 </div>
 
+<% unless params[:from_home].present? %>
+  <div>
+    <table class="weather-card">
+      <thead>
+        <tr class="head-table">
+          <th>Heure</th>
+          <th>Vent</th>
+          <th>Rafale</th>
+          <th>Pluie</th>
+          <th>Air</th>
 <div>
   <table class="weather-card">
     <thead>
@@ -48,15 +58,41 @@
             <i class="fa-solid fa-temperature-three-quarters <%= 'fa-beat-fade' if criteria_correspond?(weather) %>"></i>
             <%= weather.temperature %>°C
           </td>
-        </tr>
-        <% end %>
-      </tbody>
-  </table>
 
-<div class="map">
-  <%= cl_image_tag @spot.photos.last.key, height: 300, width: 350, crop: :fill, class:"show-map" %>
-  <p><%= image_tag "arrow-up.png", height: 300, width: 350, class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
-</div>
+        </tr>
+      </thead>
+        <tbody>
+          <% @weathers.each do |weather| %>
+          <tr class="table-element <%= 'colored' if criteria_correspond?(weather) %>">
+            <td class="time">
+              <%= display_well_time(weather.time) %>
+            </td>
+            <td class="wind">
+              <i><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></i>
+              <%= weather.wind_force.to_i %>nd
+            </td>
+            <td class="wind-gust time">
+              <i class="fa-solid fa-tornado <%= 'fa-beat-fade' if criteria_correspond?(weather) %>"></i>
+              <%= weather.gust_wind %>nd
+            </td>
+            <td class="rain time">
+              <i class="fa-solid fa-droplet <%= 'fa-beat-fade' if criteria_correspond?(weather) %>"></i>
+              <%= weather.prob_rain %>%
+            </td>
+            <td class="temperature time">
+              <i class="fa-solid fa-temperature-three-quarters <%= 'fa-beat-fade' if criteria_correspond?(weather) %>"></i>
+              <%= weather.temperature %>°C
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+    </table>
+
+  <div class="map">
+    <%= cl_image_tag @spot.photos.last.key, height: 300, width: 350, crop: :fill, class:"show-map" %>
+    <p><%#= image_tag "arrow-up.png", height: 300, width: 350, class: "arrow-map", style: "rotate: #{@good_weathers.first.wind_direction}deg;" %></p>
+  </div>
+<% end %>
 
 <div id="options" data-controller="open-on-click">
   <button data-action="open-on-click#toggleDescription", class="description">Description du spot</button>

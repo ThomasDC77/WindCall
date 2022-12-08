@@ -37,6 +37,7 @@ p{
   background-image: url("http://image.noelshack.com/fichiers/2022/49/2/1670320805-kitesurf-dreams-los-roques-venezuela-08.gif");
   background-size: cover;
   background-position: center;
+
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -166,6 +167,41 @@ input[type="text"] {
   font-size: 1rem;
   box-sizing: border-box;
 }
+
+ul.suggestions{
+  padding: 10px;
+  margin: 0;
+  li {
+    margin: 0.5rem 0;
+  }
+}
+
+.mapboxgl-ctrl-geocoder--icon-search{
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--button{
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.5;
+}
+
+.mapboxgl-ctrl-geocoder--icon-loading{
+  display: none;
+}
+
+#map-search{
+  position: relative;
+  width: 100%;
+}
+
 
 // Submit Button
 .submit-button{
@@ -419,33 +455,7 @@ ol, li {
 //   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
 // }
 
-.mapboxgl-ctrl-geocoder--icon-search{
-  display: none;
-}
 
-
-.mapboxgl-ctrl-geocoder--button{
-  position: absolute;
-  right: 0;
-  position: absolute;
-  right: 8px;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  height: 35px;
-  background-color: transparent;
-  border: none;
-  opacity: 0.5;
-}
-
-.mapboxgl-ctrl-geocoder--icon-loading{
-  display: none;
-}
-
-#map-search{
-  position: relative;
-  width: 100%;
-}
 
 // #perimeter{
 //   width: 20%;
