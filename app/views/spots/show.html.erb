@@ -44,7 +44,9 @@
               <%= display_well_time(weather.time) %>
             </td>
             <td class="wind">
-              <i><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{weather.wind_direction}deg;" %></i>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+              </svg>
               <%= weather.wind_force.to_i %>nd
             </td>
             <td class="wind-gust time">
@@ -81,7 +83,9 @@
               <%= display_well_time(weather.time) %>
             </td>
             <td class="wind">
-              <i><%= image_tag "arrow", class: "normal-h test", style: "rotate: #{weather.wind_direction}deg;" %></i>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="normal-h", style= "rotate: <%= weather.wind_direction %>deg;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+              </svg>
               <%= weather.wind_force.to_i %>nd
             </td>
             <td class="wind-gust time">
