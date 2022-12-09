@@ -59,12 +59,11 @@ p{
 }
 
 .button-alert{
-  background-color: #E58819;
-  border: 1px solid #E58819;
+  border: 2px solid #1C3E46;
   color: #1C3E46;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   margin: 28px auto;
@@ -232,6 +231,7 @@ ul.suggestions{
   justify-content: center;
   align-items: center;
   margin: 1rem auto 0 auto;
+  font-size: 1.2rem;
 }
 
 .button-link-to{
@@ -241,7 +241,7 @@ ul.suggestions{
   border: none;
   color: white;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 //Caroussel

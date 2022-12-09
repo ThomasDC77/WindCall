@@ -32,8 +32,19 @@
         <% end %>
       <% end %>
     <% else %>
-    <div>Sorry bro ... </div>
 
-    <%= link_to "Refaire une recherche !", root_path, class: "submit-button"  %>
-    <% end %>
+    <div class="oups">
+      <p class="sorry"><span>Oh oh...</span> Il n'y a pas de résultats qui correspondent à tes critères !</p>
+      <%= link_to "Refais une recherche !", root_path, class: "submit-button"  %>
+      <% end %>
+
+      <div class="pouf">
+      <p class="sorry">...ou crée une Alerte</p>
+        <%= link_to new_alert_path(params: request.params), data: { turbo_frame: "modal" }, class: "button-alert" do %>
+            <i class="fa fa-bell fa-shake"></i>
+            <span>Crée une alerte</span>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>

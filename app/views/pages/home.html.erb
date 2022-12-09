@@ -89,8 +89,8 @@ la France !</p>
     </div>
     <div class="form-geolocation">
       <div data-controller="address-autocomplete" id="map-search"
-        data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-        <%= f.text_field :address, place: "Cherche ta ville", data: {address_autocomplete_target: "address"},
+           data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+        <%= f.text_field :address, data: {address_autocomplete_target: "address"},
         style: "display:none;"
         %>
       </div>

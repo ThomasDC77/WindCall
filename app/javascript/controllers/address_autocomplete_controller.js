@@ -14,6 +14,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "place,postcode,locality,neighborhood,address",
       countries: 'fr',
+      placeholder: "Où veux-tu Kite Surfer ?"
     })
 
     this.geocoder.addTo(this.element);
