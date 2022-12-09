@@ -8,6 +8,6 @@ export default class extends Controller {
     setTimeout(() => {
       container.classList.remove('loading')
       container.classList.add('loaded')
-    }, 500);
+    }, 1000);
   }
 }

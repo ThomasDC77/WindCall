@@ -31,7 +31,7 @@
     </ol>
   </section>
 
-  <% unless params[:from_home].present? %>
+  <% if @weathers.present? %>
     <div class="fullDate">
       <p>
         <%= translate_day(@weathers.first.time.strftime("%A")) %>
@@ -81,7 +81,7 @@
           </tbody>
       </table>
 
-      <table class="weather-card hidden" data-table-target="allWeathers">
+      <table id="voir-plus" class="weather-card hidden" data-table-target="allWeathers">
         <thead>
           <tr class="head-table">
             <th>Heure</th>
@@ -119,7 +119,9 @@
             <% end %>
           </tbody>
       </table>
-      <button class="allInfos" data-action="click->table#changeTable">Voir plus</button>
+      <a href="#voir-plus">
+        <button class="allInfos" data-action="click->table#changeTable">Voir plus</button>
+      </a>
     </div>
 
     <div class="map">
